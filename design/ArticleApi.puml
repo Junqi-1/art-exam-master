@@ -1,0 +1,86 @@
+@startuml
+class com.youkeda.application.art.article.api.ArticleApi {
+@Autowired
+- ArticleService articleService
+
+====
+
+// 添加或更新文章
+@PostMapping(path = "/save")
+@ResponseBody
+@NeedLogin
++ Result<Article> save(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestBody Article article
+  )
+
+// 分页查询文章
+@GetMapping(path = "/paging")
+@ResponseBody
++ Result<Paging<Article>> queryArticle(
+QueryArticlePagingParam param,
+@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser
+)
+
+// 点击下一篇文章
+@GetMapping(path = "/getnextarticle")
+@ResponseBody
++ Result<Article> getNextArticle(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("articleId") String articleId,
+        @RequestParam(value = "companyId", required = false) String companyId,
+        @RequestParam(value = "articleCategory", required = false) String articleCategory,
+        @RequestParam(value = "refCategory", required = false) RefCategory refCategory
+)
+
+// 点击上一篇文章
+@GetMapping(path = "/getpreviousarticle")
+@ResponseBody
++ Result<Article> getPreviousArticle(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("articleId") String articleId,
+        @RequestParam(value = "refCategory", required = false) RefCategory refCategory,
+        @RequestParam(value = "companyId", required = false) String companyId,
+        @RequestParam(value = "articleCategory", required = false) String articleCategory
+)
+
+// 获取单个文章详情
+@GetMapping(path = "/getarticle")
+@ResponseBody
++ Result<Article> getArticle(@RequestParam("id") String id)
+
+// 删除文章
+@NeedLogin
+@PostMapping(path = "/delete")
+@ResponseBody
++ Result<Boolean> delete(@RequestParam("id") String id)
+
+// 获取所有文章类型
+@GetMapping(path = "/getarticlecategory")
+@ResponseBody
++ Result<List<String>> getArticleCategory()
+
+// 根据refCategory获取文章
+@GetMapping(path = "/getarticlebyrecategory")
+@ResponseBody
++ Result<Paging<Article>> getArticleByRefCategory(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        QueryArticleRefCategoryPagingParam param
+)
+
+// 根据refCategory获取文章
+@GetMapping(path = "/getarticlebyrecategorylist")
+@ResponseBody
++ Result<List<Article>> getArticleByRefCategorys(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("refCategory") RefCategory refCategory,
+        @RequestParam(value = "companyId", required = false) String companyId
+)
+
+}
+
+note top of com.youkeda.application.art.article.api.ArticleApi
+@Controller
+@RequestMapping(value = "/api/examorg")
+end note
+@enduml

@@ -1,0 +1,139 @@
+@startuml
+
+class com.youkeda.application.art.article.model.ArticleDetail {
+// 所属文章的主键 id
+- String articleId
+
+// 文章内容
+- String content
+
+// 源文章内容
+- String originalContent
+
+====
+
+}
+
+class com.youkeda.application.art.article.model.ArticleSource {
+// 文章来源链接
+- String url
+
+// 文章来源名称
+- String originalName
+
+// 文章来源标题
+- String originalTitle
+
+// 文章来源作者
+- String originalAuthor
+
+// 文章来源创建时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss")
+- LocalDateTime originalGmtCreated
+
+// 源文章点赞数
+- int originalLikeNum
+
+// 是否需要版权
+- boolean copyright
+
+// 源文章阅读数
+- int originalReadNum
+
+// 源文章分享数
+- int originalShareNum
+
+====
+
+}
+class com.youkeda.application.art.article.model.Article {
+// 文章标题
+- String title
+
+// 发布人accountId
+- String accountId
+
+// 评价数量
+- int commentNum
+
+// 关联活动类型
+- RefCategory refCategory
+
+// 附件url
+- List<String> ossUrl
+
+// 文章详情
+- ArticleDetail articleDetail
+
+// 文章来源
+- ArticleSource articleSource
+
+// 总阅读数
+- long totalReadNum
+
+// 总点赞数
+- long totalLikeNum
+
+// 编辑次数
+- int editNum
+
+// 总分享数
+- long totalShareNum
+
+// 文章banner
+- String banner
+
+// 文章来源
+- ArticleSourceType articleSourceType
+
+// 文章作者
+- String author
+
+// 作者头像
+- String avatarUrl
+
+// 文章类型
+- String articleCategory
+
+// 状态
+- String status
+
+// 链接地址
+- String linkUrl
+
+// 额外属性
+- Map<String,String> context
+
+====
+
+}
+
+enum com.youkeda.application.art.article.model.ArticleSourceType {
+//自定义文章
++  ORIGINAL
+
+//爬取文章
++  CRAWLING
+}
+
+enum com.youkeda.application.art.article.model.RefCategory {
+//故事集锦
++  STORY_GROUP
+
+//专家课堂
++  EXPERT_CLASS
+
+//官网文章
++  WEBSITEARTICLE
+}
+
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.article.model.ArticleDetail
+com.youkeda.model.Base <|-- com.youkeda.application.art.article.model.Article
+
+com.youkeda.application.art.article.model.Article -right-> com.youkeda.application.art.article.model.ArticleDetail
+com.youkeda.application.art.article.model.Article -left-> com.youkeda.application.art.article.model.ArticleSource
+com.youkeda.application.art.article.model.Article --> com.youkeda.application.art.article.model.ArticleSourceType
+com.youkeda.application.art.article.model.Article --> com.youkeda.application.art.article.model.RefCategory
+
+@enduml

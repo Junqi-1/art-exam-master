@@ -1,0 +1,43 @@
+@startuml
+
+interface com.youkeda.application.art.member.service.CompanyService #LightYellow##FireBrick {
+
+// 创建企业，生成一个code
++ Company save(Company company)
+
+// 获取企业
++ Company find(CompanyQueryParam param)
+
+// 根据accountId查询公司信息
++ List<Company> queryByAccountId(String accountId)
+
+// 根据域名查询公司信息
++ Company getByDomain(String domainUrl)
+
+// 根据主键id删除公司
++ void delete(String companyId)
+
+// 根据主键id查询企业信息
++ Company get(String companyId)
+
+----
+
+}
+
+class com.youkeda.application.art.member.param.CompanyQueryParam #LightYellow##FireBrick {
+// 根据编码查询
+- String code
+// 根据域名查询
+- String domain
+
+----
+// 创建查询参数实例对象
++ {static} CompanyQueryParam create()
+}
+
+class com.youkeda.model.Company {
+}
+
+com.youkeda.application.art.member.service.CompanyService .right.> com.youkeda.application.art.member.param.CompanyQueryParam
+com.youkeda.application.art.member.service.CompanyService ..> com.youkeda.model.Company
+@enduml

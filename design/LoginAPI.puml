@@ -1,0 +1,120 @@
+@startuml
+class com.youkeda.application.art.member.exception.UserPwdNeedChangeException {
+- User user
+
+====
+
++ <<Create>> UserPwdNeedChangeException(User user)
+
+----
+
++ User getUser()
+}
+
+interface com.youkeda.application.art.member.service.UserLoginService {
++ User loginWithPwd(User user) throws UserPwdErrorException, UserPwdNeedChangeException
+
+====
+
+}
+
+class com.youkeda.application.art.config.SpringHttpSessionConfig {
+
+====
+
+@Bean
++ CookieSerializer cookieSerializer()
+
+@Bean
++ MapSessionRepository sessionRepository()
+}
+
+class com.youkeda.application.art.member.api.LoginAPI {
+- UserLoginService userLoginService
+- AccountService accountService
+
+====
+
++ Result<String> doLoginWithUserName (
+    @RequestBody
+    @Valid
+    User user,
+
+    BindingResult errors,
+
+    HttpServletRequest request
+  )
+
+}
+
+class com.youkeda.application.art.config.AppConfigurer {
+@Autowired
+- MemberHandlerInterceptor memberHandlerInterceptor
+
+====
+
+@Override
++ void addInterceptors(InterceptorRegistry registry)
+}
+
+class com.youkeda.application.art.member.model.LoginUser {
+- String accountId
+- String userId
+- String companyId
+
+====
+
++ <<Create>> LoginUser()
+
+----
+
++ {static} LoginUser create()
+
++ String getAccountId()
++ LoginUser setAccountId(String)
++ String getUserId()
++ LoginUser setUserId(String)
++ String getCompanyId()
++ LoginUser setCompanyId(String)
+}
+
+class com.youkeda.application.art.member.service.impl.UserLoginServiceImpl {
+@Autowired
+- UserRepository userRepository
+
+====
+
+}
+
+class com.youkeda.application.art.interceptor.MemberHandlerInterceptor {
+
+====
+
+@Override
++ boolean preHandle (
+    HttpServletRequest request,
+    HttpServletResponse response,
+    Object handler
+  )
+}
+
+annotation com.youkeda.application.art.config.NeedLogin {
+}
+
+
+java.lang.Exception <|-- com.youkeda.application.art.member.exception.UserPwdNeedChangeException : extends
+org.springframework.web.servlet.config.annotation.WebMvcConfigurer <|.. com.youkeda.application.art.config.AppConfigurer : implements
+java.io.Serializable <|.. com.youkeda.application.art.member.model.LoginUser : implements
+com.youkeda.application.art.member.service.UserLoginService <|.. com.youkeda.application.art.member.service.impl.UserLoginServiceImpl : implements
+org.springframework.web.servlet.HandlerInterceptor <|.. com.youkeda.application.art.interceptor.MemberHandlerInterceptor : implements
+
+com.youkeda.application.art.member.service.UserLoginService .left.> com.youkeda.application.art.member.exception.UserPwdNeedChangeException : Dependency
+
+com.youkeda.application.art.member.api.LoginAPI --> com.youkeda.application.art.member.service.UserLoginService : Association
+com.youkeda.application.art.member.api.LoginAPI .right.> com.youkeda.application.art.member.model.LoginUser : Dependency
+
+com.youkeda.application.art.config.AppConfigurer --> com.youkeda.application.art.interceptor.MemberHandlerInterceptor : Association
+
+om.youkeda.application.art.interceptor.MemberHandlerInterceptor ..> com.youkeda.application.art.config.NeedLogin : Dependency
+
+@enduml

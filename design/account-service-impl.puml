@@ -1,0 +1,88 @@
+@startuml
+
+interface com.youkeda.application.art.member.service.AccountService #LightYellow##FireBrick {
+
+----
+
+// 保存账户，创建或者修改
++ Account save(Account)
+
+// 删除账户
++ void delete(String)
+
+// 获取用户
++ Paging<Account> query(AccountQueryParam)
+
+// 查询某企业下的用户，不分页
++ List<Account> query(String companyId, AccountQueryParam)
+}
+
+class com.youkeda.application.art.member.service.impl.AccountServiceImpl #LightYellow##FireBrick {
+
+- AccountRepository accountRepository
+- MongoTemplate mongoTemplate
+- UserService userService
+- UserRepository userRepository
+
+----
+
+}
+
+interface com.youkeda.application.art.member.repository.AccountRepository #LightYellow##FireBrick {
++ List<Account> findByUserId(String userId);
+
++ Account findByOldId(String oldId);
+}
+
+interface org.springframework.data.mongodb.repository.MongoRepository <Account, String> {
+}
+
+class com.youkeda.application.art.member.param.AccountQueryParam {
+- static final long serialVersionUID
+
+- String name
+
+// 用户名称
+- String userName
+
+- String mobile
+
+- List<String> mobiles
+
+- String accountId
+
+// 账户集合
+- List<String> accountIds
+
+// 用户id
+- String userId
+
+- String companyId
+
+- AccountStatus status
+}
+
+class com.youkeda.model.BasePagingParam <AccountQueryParam> {
+// 页数
+- int pagination = 0
+
+// 每页数量
+- int pageSize = 15
+
+----
+
++ T setPagination(int pagination)
+
+}
+
+com.youkeda.model.BasePagingParam .up.|> java.io.Serializable : implements
+
+com.youkeda.application.art.member.service.AccountService <|.. com.youkeda.application.art.member.service.impl.AccountServiceImpl : implements
+com.youkeda.application.art.member.service.AccountService .right.> com.youkeda.application.art.member.param.AccountQueryParam
+com.youkeda.application.art.member.service.impl.AccountServiceImpl ..> com.youkeda.application.art.member.repository.AccountRepository
+
+com.youkeda.application.art.member.repository.AccountRepository -up-|> org.springframework.data.mongodb.repository.MongoRepository : extends
+
+com.youkeda.application.art.member.param.AccountQueryParam -up-|> com.youkeda.model.BasePagingParam : extends
+
+@enduml

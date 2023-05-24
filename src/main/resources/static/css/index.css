@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+}
+
+main {
+    height: 100%;
+}
+
+.right {
+    background-image: url(/images/Group30.png);
+    width: 831px;
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,114 @@
+@startuml
+class com.youkeda.application.art.member.model.AddDepartmentAccountParam {
+- String departmentId
+- Account account
+
+====
+
+}
+class com.youkeda.application.art.member.model.DeleteAccountParam {
+- String departmentId
+- List<String> accountIds
+
+====
+
+}
+class com.youkeda.application.art.member.model.AdjustDepartmentParam {
+// 源部门id
+- String originDepartmentId
+
+// 目的部门Id
+- String destDepartmentId
+
+// 员工的账户Ids
+- List<String> accountIds
+
+====
+
+}
+class com.youkeda.application.art.member.api.DepartmentApi {
+
+@Autowired
+- DepartmentService departmentService
+
+@Autowired
+- DepartmentAccountService departmentAccountService
+
+@Autowired
+- CompanyService companyService
+
+@Autowired
+- AccountService accountService
+
+====
+
+@PostMapping(path = "/save")
+@ResponseBody
++ Result<Department> save(@RequestBody Department department)
+
+@PostMapping(path = "/delete")
+@ResponseBody
++ Result delete(String departmentId)
+
+// 添加部门成员信息
+@PostMapping(path = "/user/add")
+@ResponseBody
++ Result addUser(@RequestBody AddDepartmentAccountParam addDepartmentAccountParam)
+
+// 批量删除用户信息
+@PostMapping(path = "/users/delete")
+@ResponseBody
++ Result deleteUsers(@RequestBody DeleteAccountParam deleteAccountParam)
+
+@GetMapping(value = "/query")
+@ResponseBody
++ Result<Department> query(
+    HttpServletRequest request,
+    @RequestParam(value = "companyId", required = false) String companyId,
+    @RequestParam(value = "companyCode", required = false) String companyCode
+  )
+
+@GetMapping(value = "/queryaccounts")
+@ResponseBody
++ Result<Paging<Account>> queryAccounts(DepartmentAccountParam param)
+
+@GetMapping(path = "/querybyuserinfo")
+@ResponseBody
++ Result<List<Department>> queryByUserInfo(
+    @RequestParam(value = "companyId", required = false) String companyId,
+    @RequestParam(value = "keywords", required = false) String keywords
+  )
+
+@PostMapping(value = "/adjust")
+@ResponseBody
++ Result adjust(@RequestBody AdjustDepartmentParam param)
+
+@GetMapping(value = "/query/departmentkeyword")
+@ResponseBody
++ Result<List<Account>> queryByKeyword(
+    @RequestParam("departmentId") String departmentId,
+    @RequestParam("keyword") String keyword,
+    HttpServletRequest request
+  )
+
+@RequestMapping(path = "/query/acountdepartment", method = {RequestMethod.GET, RequestMethod.POST})
+@ResponseBody
++ Result<List<Department>> queryByAccountId(@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser)
+
+@GetMapping("/existondepartment")
+@ResponseBody
++ Result accountExistOnDepartment(HttpServletRequest request,
+    @RequestParam(value = "departmentId", required = false)
+  }
+
+note top of com.youkeda.application.art.member.api.DepartmentApi
+@NeedLogin
+@Controller
+@RequestMapping(path = "/api/department")
+end note
+
+com.youkeda.application.art.member.api.DepartmentApi ..> com.youkeda.application.art.member.model.AdjustDepartmentParam : dependency
+com.youkeda.application.art.member.api.DepartmentApi ..> com.youkeda.application.art.member.model.AddDepartmentAccountParam : dependency
+com.youkeda.application.art.member.api.DepartmentApi ..> com.youkeda.application.art.member.model.DeleteAccountParam : dependency
+
+@enduml

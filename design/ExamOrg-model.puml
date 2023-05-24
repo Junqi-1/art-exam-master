@@ -1,0 +1,169 @@
+@startuml
+class com.youkeda.model.Base<T> {
+}
+
+class com.youkeda.application.art.exam.model.RegistrationPoint {
+// 报名点名称
+- String name
+
+// 报名点别称
+- String aliaName
+
+// 报名点地址
+- String address
+
+// 报名点负责人id
+- String chargeId
+
+// 报名点负责人
+@Transient
+- Account chargeAccount
+
+// 考级点id
+- String examOrgId
+
+// 考级点
+@Transient
+- ExamOrg examOrg
+
+====
+
+}
+
+enum com.youkeda.application.art.exam.model.Association {
+// 音乐协会
++  MUSIC
+
+// 戏剧协会
++  DRAMA
+}
+
+class com.youkeda.application.art.exam.model.ExamOrg {
+// 考级点编号
+- String num
+
+// 协会
+- Association association
+
+// 考级点名称
+- String name
+
+// 考级点别称
+- String alias
+
+// 考级点区号
+- String areaCode
+
+// 考级点地址
+- String address
+
+// 领队id
+- String leaderId
+
+// 领队
+@Transient
+- Account leaderAccount
+
+// 考级点负责人id
+- String chargeId
+// 多个考级点负责人id
+- List<String> chargeIds
+
+// 考生报名次数
+- Integer signUpIndex
+
+// 考级点负责人
+@Transient
+- Account chargeAccount
+
+// 多个考级点负责人
+@Transient
+- List<Account> chargeAccounts
+
+====
+
+}
+
+class com.youkeda.application.art.exam.model.Exam {
+// 考试名称
+- String name
+
+// 报名开始时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime signUpStart
+
+// 报名结束时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime signUpEnd
+
+// 考试开始时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime examStart
+
+// 考试结束时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime examEnd
+
+// 考级点id
+- String examOrgId
+
+//考级点
+@Transient
+- ExamOrg examOrg
+
+// 报名点id
+- String registrationId
+
+// 报名点
+@Transient
+- RegistrationPoint registrationPoint
+
+// 考试进度/阶段
+- ExamStage examStage
+
+// 结算单
+- String paymentUrl
+
+// 发放单
+- String statementsUrl
+
+// 上传的文件名
+- String fileName
+
+// 文件url
+- String fileUrl
+
+// 考试报名人数
+- long signUpNum = 0
+
+====
+
+}
+
+enum com.youkeda.application.art.exam.model.ExamStage {
+// 初始化
++ INIT
+
+// 通知打印准考证
++ NOTICED
+
+// 发布成绩
++ RELEASE
+
+// 上传缴费单
++  UPLOAD
+}
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.exam.model.RegistrationPoint : extends
+com.youkeda.model.Base <|-- com.youkeda.application.art.exam.model.ExamOrg : extends
+com.youkeda.model.Base <|-- com.youkeda.application.art.exam.model.Exam : extends
+
+com.youkeda.application.art.exam.model.RegistrationPoint -left-> com.youkeda.application.art.exam.model.ExamOrg : Association
+
+com.youkeda.application.art.exam.model.ExamOrg -left-> com.youkeda.application.art.exam.model.Association : Association
+
+com.youkeda.application.art.exam.model.Exam -left-> com.youkeda.application.art.exam.model.ExamStage : Association
+com.youkeda.application.art.exam.model.Exam -up-> com.youkeda.application.art.exam.model.ExamOrg : Association
+com.youkeda.application.art.exam.model.Exam -up-> com.youkeda.application.art.exam.model.RegistrationPoint : Association
+
+@enduml

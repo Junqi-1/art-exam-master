@@ -1,0 +1,63 @@
+@startuml
+interface java.io.Serializable {
+}
+
+class com.youkeda.model.Base<T> {
+// 主键
+@Id
+# String id
+
+// 公司 id，MongoDB自动转为ObjectId
+@Field(targetType = FieldType.OBJECT_ID)
+# String companyId = Company.DEFAULT.id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+----
+
++ String getId()
++ T setId(String id)
+
+}
+
+class com.youkeda.model.Company {
+@Transient
++ {static} final Company DEFAULT = new Company("5e72e0bfad8bcb7392fbcb79", "default", "default")
+
+- {static} long serialVersionUID
+
+@Id
+# String id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+// 企业编码
+- String code
+// 企业域
+- String domain
+// 企业名字全称
+- String name
+// 企业简称
+- String shortName
+// 企业 owner id
+- String ownerUserId
+
+----
+
++ <<Create>> Company()
++ <<Create>> Company(String id, String name, String code)
+
+}
+
+java.io.Serializable <|.. com.youkeda.model.Base : implements
+java.io.Serializable <|.. com.youkeda.model.Company : implements
+com.youkeda.model.Base .right.> com.youkeda.model.Company
+@enduml

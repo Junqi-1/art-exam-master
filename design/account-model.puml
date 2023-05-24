@@ -1,0 +1,211 @@
+@startuml
+
+interface java.io.Serializable {
+}
+
+class com.youkeda.model.Base<T> {
+// 主键
+@Id
+# String id
+
+// 公司 id，MongoDB自动转为ObjectId
+@Field(targetType = FieldType.OBJECT_ID)
+# String companyId = Company.DEFAULT.id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+----
+
++ String getId()
++ T setId(String id)
+}
+
+enum com.youkeda.application.art.member.model.AccountStatus {
+// 创建的账户
++  created
+// 激活过的账户（就是用户登录过）
++  enabled
+// 离职员工
++  separating
+// 正式员工
++  regular
+// 兼职员工
++  partial
+// 实习员工
++  intern
+}
+
+class com.youkeda.model.Company {
+@Transient
++ {static} final Company DEFAULT = new Company("5e72e0bfad8bcb7392fbcb79", "default", "default")
+
+- {static} long serialVersionUID
+
+@Id
+# String id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+// 企业编码
+- String code
+// 企业域
+- String domain
+// 企业名字全称
+- String name
+// 企业简称
+- String shortName
+// 企业 owner id
+- String ownerUserId
+
+----
+
++ <<Create>> Company()
++ <<Create>> Company(String id, String name, String code)
+}
+
+class com.youkeda.application.art.member.model.Account {
+// 默认的管理账户
+@Transient
++ {static} Account DEFAULT = new Account("5da98c79431bc630043b719f", "ykd", AccountStatus.enabled)
+
+- {static} long serialVersionUID
+
+// 关联的 User
+@Transient
+- User user
+
+@Field(targetType = FieldType.OBJECT_ID)
+- String userId;
+
+// 个人资料
+- AccountProfile profile = new AccountProfile()
+
+// 状态，默认激活状态
+- AccountStatus status = AccountStatus.enabled
+
+// 账户名称，用于手工创建
+- String accountName
+// 帐户手机号码，用于企业创建帐户
+- String accountMobile
+// 旧 ID，备用
+- String oldId
+// 邮箱
+- String email
+
+// 入职时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime joinTime
+
+// 用户工号
+- String jobNumber
+// 是否被封禁
+- boolean ban
+
+----
+
++ <<Create>> Account()
++ <<Create>> Account(String id, String accountName, AccountStatus status)
+}
+
+class com.youkeda.application.art.member.model.AccountProfile {
+- {static} long serialVersionUID
+
+// 大学学校名称
+- String schoolName
+// 入学时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+- LocalDate schoolBeginDate
+
+// 毕业时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+- LocalDate schoolEndDate
+
+// 专业
+- String major
+// qq号
+- String qq
+// 院系
+- String faculty
+
+----
+}
+
+class com.youkeda.application.art.member.model.User {
+- {static} long serialVersionUID
+
+// 命名空间，默认存短ID，用户可以自定义
+- String namespace
+// 用户个人签名
+- String description
+// 手机号
+- String mobile
+// 邮箱
+- String email
+// 用户名
+- String userName
+// 用户名称
+- String name
+// 昵称
+- String nickName
+// 头像
+- String avatarUrl
+// 性别
+- Gender gender
+// 用户状态
+- UserStatus status
+
+// 出生年月日
+@JsonFormat(pattern = "yyyy-MM-dd")
+- Date birthday
+
+@JsonSerialize(using = NullSerializer.class)
+- String pwd
+
+// 密码盐值
+@JsonIgnore
+- String slot = "ykd"
+
+// 用户协议版本
+- String agreementVersion
+
+----
+
++ {static} User create()
+}
+
+enum com.youkeda.application.art.member.model.Gender {
++  male
++  female
++  unknow
+}
+
+enum com.youkeda.application.art.member.model.UserStatus {
++  enabled
++  disabled
++  deleted
+}
+
+java.io.Serializable <|.. com.youkeda.model.Base : implements
+java.io.Serializable <|.. com.youkeda.model.Company : implements
+com.youkeda.model.Base .right.> com.youkeda.model.Company
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.Account : extends
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.AccountProfile : extends
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.User : extends
+
+com.youkeda.application.art.member.model.User ..> com.youkeda.application.art.member.model.Gender
+com.youkeda.application.art.member.model.User ..> com.youkeda.application.art.member.model.UserStatus
+
+com.youkeda.application.art.member.model.Account ..> com.youkeda.application.art.member.model.AccountProfile
+com.youkeda.application.art.member.model.Account ..> com.youkeda.application.art.member.model.AccountStatus
+com.youkeda.application.art.member.model.Account .left.> com.youkeda.application.art.member.model.User
+
+@enduml

@@ -1,0 +1,497 @@
+html,main,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+button,input,ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+  text-decoration:none;
+  color: #000000;
+}
+
+.sidebar {
+    width: 60px;
+    height: 100%;
+    opacity: 1;
+    border: 0 solid rgba(151, 151, 151, 1);
+    background: rgba(25, 34, 54, 1);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.menu img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 2px;
+}
+
+.menu div {
+    margin: 0 auto;
+    width: 48px;
+    height: 17px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "PingFang SC";
+
+}
+
+.menu li {
+    margin: 36px 0;
+}
+
+.menu {
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu .top {
+    margin-top: 80px;
+}
+
+main {
+    margin-left: 60px;
+
+}
+
+nav {
+    height: 52px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+nav>img {
+    width: 34px;
+    height: 26.17px;
+    padding-left: 20px;
+    margin-top: 13px;
+}
+nav .search{
+font-size: 0;  
+  height: 32px;
+  margin: auto;
+}
+nav .search input{
+    width: 630px;
+    height: 31px;
+    text-align: center;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+border: 1px solid rgba(0,0,0,0.05);
+background: rgba(245,245,245,1);
+color: rgba(0,0,0,1);
+ font-size: 12px;
+
+}
+nav .search button{
+    width: 50px;
+height: 33px;
+border-bottom-right-radius: 3px;
+border-top-right-radius: 3px;
+border: none;
+background: rgba(73,160,252,1);
+padding: 0;
+}
+nav .search img{
+    width: 16px;
+height: 16px;
+vertical-align: middle;
+}
+
+.left {
+    display: inline-block;
+}
+
+.left span {
+    line-height: 52px;
+}
+
+.left img {
+    width: 10.49px;
+    height: 6.99px;
+}
+
+.right {
+    height: 52px;
+
+    float: right;
+}
+
+.right img {
+    width: 30px;
+    height: 30px;
+    padding: 0 30px;
+    display: inline-block;
+    margin-top: 11px;
+
+}
+
+.title {
+    height: 40px;
+    border: 1px solid rgba(238, 238, 238, 1);
+    background: rgba(250, 250, 250, 1);
+    display: inline-block;
+    width: 100%;
+
+}
+.title .first{
+    position: relative;
+}
+.title li{
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: 14px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+.title .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -6px;
+    width: 30px;
+    height: 3px;
+    background-color: #28BE9A;
+}
+.title .zuihou{
+    color: rgba(0,145,255,1);
+    font-size: 12px;
+    font-weight: 400;
+    float: right;
+    padding-right: 10px;
+}
+
+.leftbox{
+ width: 244px;
+ background: rgba(250,250,250,1);
+float: left;
+}
+.leftbox .fudong{
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+
+}
+
+.contain{
+    height: calc(100% - 96px);
+    width: calc(100% - 60px);
+
+    background: rgba(250,250,250,1);
+}
+.contain menu{
+    /* width: 244px; */
+    height: 100%;
+}
+
+menu img{
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+
+}
+
+menu  .zuzhi span{
+    color: rgba(0,0,0,1);
+ font-size: 14px;
+ font-weight: 500;
+ padding-left: 5px;
+}
+menu ul li{
+    color: rgba(0,0,0,1);
+    font-size: 12px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+menu ul .now{
+    height: 32px;
+    background: rgba(31,44,65,1);
+    color: rgba(255,247,247,1);
+    font-size: 12px;
+    line-height: 32px;
+
+}
+.rightbox{
+float: left;
+background: rgba(250,250,250,1);
+width: calc(100% - 244px);
+
+}
+.rightbox .name {
+    height: 50px;
+    padding-top: 21px;
+    padding-left: 20px;
+}
+.rightbox .name span{
+    color: rgba(0,0,0,1);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+.rightbox .name img{
+    width: 18px;
+height: 18px;
+vertical-align: middle;
+}
+.rightbox .jieshao{
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 30px;
+
+
+}
+.rightbox .jieshao span{
+    color: rgba(125, 128, 135, 1);
+    padding-right: 30px;
+}
+.shang,.dibu{
+    background: rgba(255,255,255,1);
+}
+.introduce {
+    padding-left: 20px;
+    padding-top: 20px;
+
+
+}
+.introduce img{
+    width: 17px;
+height: 15px;
+}
+
+.introduce>span {
+    line-height: 40px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.introduce button {
+    float: right;
+    margin-right: 20px;
+    width: 105px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid rgba(233, 233, 233, 1);
+    background: rgba(247, 247, 247, 1);
+}
+
+table tr input{
+    vertical-align: middle;
+
+}
+.introduce .shunxu span::before {
+    content: '';
+    display: inline-block;
+    background:url(/images/role/shunxu.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 14px;
+    vertical-align: bottom;
+    padding: 2px;
+}
+
+.introduce .add span::before {
+    content: '';
+    display: inline-block;
+    background:url(/images/role/add.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: bottom;
+    padding: 2px;
+}
+
+.introduce .del span,.de{
+    color: #d81e06;
+}
+.introduce .del span::before {
+    content: '';
+    display: inline-block;
+    background:url(/images/role/del.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    vertical-align: bottom;
+    padding: 2px;
+}
+
+
+.shang{
+    padding-bottom: 20px;
+}
+.dibu{
+    margin-top: 40px;
+    padding-bottom: 51px;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100% ;
+    text-align: left;
+    border: none;
+    border-color: white;
+    margin: 0 20px;
+
+}
+
+
+table tr,
+td {
+    height: 34px;
+    line-height: 34px;
+    color: rgba(77,79,83,1);
+    font-size: 12px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(235, 238, 245, 1);
+}
+
+td:nth-child(6)
+,td:nth-child(7) {
+    color: rgba(255, 58, 58, 1);
+}
+
+
+thead tr .dandu {
+    color: rgba(125, 128, 135, 1);
+}
+
+.bottom {
+    float: right;
+    margin-top: 12px;
+
+}
+
+.bottom div {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    background: rgba(255, 255, 255, 1);
+    text-align: center;
+
+
+}
+
+.bottom .box {
+    color: rgba(255, 255, 255, 1);
+    font-size: 12px;
+    border: 0 solid rgba(151, 151, 151, 1);
+    background: rgba(31, 44, 65, 1);
+    line-height: 26px;
+
+}
+
+.bottom div img {
+    width: 6.99px;
+    height: 10.49px;
+}
+
+
+.modals{
+    width: 500px;
+    height: 100%;
+    border: 0 solid rgba(151,151,151,1);
+    background: rgba(255,255,255,1);
+    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.15);
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.name{
+    height: 40.5px;
+    line-height: 40.5px;
+    color: rgba(0,0,0,1);
+    font-size: 14px;
+    margin-left: 18px;
+    position: relative;
+    border-bottom: 1px solid rgba(228,228,228,1);
+}
+.name .qx{
+    width: 19px;
+    position: absolute;
+    left: -28px;
+    bottom: -10px;
+}
+.neirong{
+    height: 145px;
+    width: 501px;
+    text-align: center;
+color: rgba(0,0,0,1);
+font-size: 14px;
+font-weight: 400;
+}
+.neirong div{
+    margin-top: 20px;
+}
+.neirong input{
+    width: 260px;
+    height: 32px;
+    color: rgba(0,0,0,1);
+    border-radius: 4px;
+border: 1px solid rgba(0,0,0,0.15);
+background: rgba(255,255,255,1);
+
+margin-left: 10px;
+}
+
+
+
+.modals .di{
+    border: 1px solid rgba(0,0,0,0.15);
+    border-left: none;
+height: 62px;
+bottom: 0;
+    right: 0;
+    position: fixed;
+    width: 500px;
+}
+.modals .di button{
+    width: 80px;
+height: 32px;
+border-radius: 4px;
+    margin-left: 20px;
+    font-size: 14px;
+font-weight: 400;
+margin-top: 17px;
+float: right;
+margin-right: 10px;
+
+
+}
+.modals .di .white{
+    
+border: 1px solid rgba(213,213,213,1);
+background: rgba(255,255,255,1);
+color: rgba(56,56,56,1);
+
+
+}
+.modals .di .black{
+   
+border: 0 solid rgba(151,151,151,1);
+background: rgba(31,44,65,1);
+color: rgba(255,255,255,1);
+
+}

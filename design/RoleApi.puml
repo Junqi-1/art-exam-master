@@ -1,0 +1,229 @@
+@startuml
+class com.youkeda.application.art.role.api.PermissionApi {
+@Autowired
+- PermissionService permissionService
+
+@Autowired
+- PermissionAccountsService permissionAccountsService
+
+====
+
+@PostMapping("/save")
+@ResponseBody
++ Result<Permission> save(@RequestBody Permission permission)
+
+@PostMapping("/delete")
+@ResponseBody
++ Result delete(@RequestParam String permissionId)
+
+@GetMapping("/query/accountid")
+@ResponseBody
++ Result<List<Permission>> queryByAccountId(@RequestParam String accountId)
+
+@GetMapping("/query")
+@ResponseBody
++ Result<List<Permission>> query(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  PermissionQueryParam param
+  )
+
+@GetMapping("/pagequery")
+@ResponseBody
++ Result<Paging<Permission>> pageQuery(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  PagePermissionQueryParam param
+  )
+
+}
+
+note right of com.youkeda.application.art.role.api.PermissionApi
+@NeedLogin
+@Controller
+@RequestMapping("/api/permission")
+end note
+
+class com.youkeda.application.art.role.api.PermissionAccountApi {
+@Autowired
+- PermissionAccountsService permissionAccountsService
+
+====
+
+@GetMapping("/pagequery")
+@ResponseBody
++ Result<Paging<PermissionAccount>> pageQuery(PagePermissionAccountParam param)
+
+@PostMapping("/add")
+@ResponseBody
++ Result<PermissionAccount> add(@RequestBody PermissionAccount permissionAccount)
+
+@PostMapping("/batchadd")
+@ResponseBody
++ Result batchAdd(
+  @RequestBody PermissionBatchAddParam param,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+@PostMapping("/remove/permissions")
+@ResponseBody
++ Result removePermissions(
+  @RequestParam String permissionId,
+  @RequestParam List<String> accountIds
+  )
+
+@PostMapping("/remove/permission")
+@ResponseBody
++ Result removePermission(
+  @RequestParam String permissionId,
+  @RequestParam String accountId
+  )
+
+}
+
+note top of com.youkeda.application.art.role.api.PermissionAccountApi
+@NeedLogin
+@Controller
+@RequestMapping("/api/permissionaccount")
+end note
+
+class com.youkeda.application.art.role.api.RoleApi {
+
+@Autowired
+- RoleService roleService
+
+====
+
+@GetMapping(value = "/query/accountid")
+@ResponseBody
++ Result<List<Role>> queryByAccount(
+  @RequestParam("accountId") String accountId,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+@GetMapping(value = "/query/permissionid")
+@ResponseBody
++ Result<List<Role>> queryByPermissionId(@RequestParam("permissionId") String permissionId)
+
+@GetMapping(value = "/query/all")
+@ResponseBody
++ Result<List<Role>> queryAllRoles(@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser)
+
+@GetMapping(value = "/query/roleid")
+@ResponseBody
++ Result<Paging<Account>> queryByRoleId(
+  RoleQueryParam roleQueryParam,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+@GetMapping(value = "/queryall/roleid")
+@ResponseBody
++ Result<List<Account>> queryAllByRoleId(
+  @RequestParam("roleId") String roleId,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+@GetMapping(value = "/querydepartment/roleid")
+@ResponseBody
++ Result<List<Department>> queryDepartments(@RequestParam("roleId") String roleId)
+
+@PostMapping(value = "/add/accountrole")
+@ResponseBody
++ Result<Role> batchAddAccountsRole(
+  @RequestParam("accountIds") List<String> accountIds,
+  @RequestParam("roleId") String roleId
+  )
+
+@PostMapping(value = "/add/rolepermssion")
+@ResponseBody
++ Result<Role> addRolesPermission(
+  @RequestParam("roleIds") List<String> roleIds,
+  @RequestParam("permissionId") String permissionId
+  )
+
+@PostMapping(value = "/add/departmentrole")
+@ResponseBody
++ Result<Role> batchAddDepartmentRole(
+  @RequestParam("departments") List<String> departments,
+  @RequestParam("roleId") String roleId
+  )
+
+@PostMapping(value = "/add")
+@ResponseBody
++ Result<Role> add(@RequestBody Role role)
+
+@PostMapping(value = "/update")
+@ResponseBody
++ Result<Role> update(@RequestBody Role role)
+
+@PostMapping(value = "/remove/accountid")
+@ResponseBody
++ Result<Role> removeRole(
+  @RequestParam("roleId") String roleId,
+  @RequestParam("accountIds") List<String> accountIds
+  )
+
+@PostMapping(value = "/delete")
+@ResponseBody
++ Result<Role> delete(@RequestParam("roleId") String roleId)
+
+@PostMapping(value = "/delete/permission")
+@ResponseBody
++ Result<Role> deletePermissions(
+  @RequestParam("permissionId") String permissionId,
+  @RequestParam("roleIds") List<String> roleIds
+  )
+
+@GetMapping(value = "/check/registrationpoint/role")
+@ResponseBody
++ Result<Boolean> checkRole(
+  @RequestParam("roleId") String roleId,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+@GetMapping(value = "/check/permission")
+@ResponseBody
++ Result<Boolean> checkPermission(
+  @RequestParam("permissionId") String permissionId,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+}
+
+note top of com.youkeda.application.art.role.api.RoleApi
+@NeedLogin
+@Controller
+@RequestMapping(path = "/api/role")
+end note
+
+class com.youkeda.application.art.role.api.AuthApi {
+@Autowired
+- AuthService authService
+
+====
+
+@PostMapping("/ref")
+@ResponseBody
++ Result authByRefId(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("refId") String refId
+  )
+
+@PostMapping("/permission")
+@ResponseBody
++ Result authByPermissionId(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("permissionId") String permissionId
+  )
+
+@PostMapping("/getroles")
+@ResponseBody
++ Result<List<Role>> getRoles(@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser)
+
+}
+
+note top of com.youkeda.application.art.role.api.AuthApi
+@NeedLogin
+@Controller
+@RequestMapping("/api/auth")
+end note
+
+@enduml

@@ -1,0 +1,231 @@
+@startuml
+interface com.youkeda.application.art.member.service.DepartmentService {
+
+----
+
+// 保存部门
++ Department save(Department department)
+
+// 删除部门
++ void delete(String departmentId) throws ErrorException
+
+// Tree查询所有部门信息
++ Department getAllWithTree(String companyId)
+
+// 根据多个 id 获取部门信息
++ List<Department> getByIds(List<String> departmentIds)
+
+// 通过关键字查询部门
++ List<Department> queryByUserInfo(String companyId, String keywords)
+}
+
+interface com.youkeda.application.art.member.service.DepartmentAccountService {
+
+----
+
+// 分页查询部门员工
++ Paging<Account> queryAccounts(DepartmentAccountParam param)
+
+// 添加部门成员信息
++ void addAccount(String departmentId, Account account) throws ErrorException
+
+// 批量删除用户信息
++ void deleteAccounts(String departmentId, List<String> accountIds)
+
+// 批量调整用户部门
++ void adjustAccountDepartment(String originDepartmentId, String destDepartmentId, List<String> accountIdList)
+
+// 根据关键词查询部门用户
++ List<Account> queryAccountsByKeyword(String departmentId, String keyword, String companyId)
+
+// 查询用户是否在某个部门
++ boolean accountExistOnDepartment(String accountId, String departmentId)
+
+// 根据用户id查询
++ List<Department> getByAccountId(String accountId)
+
+}
+
+interface com.youkeda.application.art.member.service.DepartmentAccountCountService {
+
+----
+
+// 计算部门人数
++ public void calculate(String departmentId)
+}
+
+class com.youkeda.application.art.member.exception.ErrorException {
+- {static} final long serialVersionUID
+
+// 短错误码
+- String code
+
+// 错误详细描述
+- String message
+
+----
+
++ <<Create>> ErrorException(String code, String message)
+
+// 取得一个结果对象
++ <T> Result<T> getResult()
+
+// 从一个结果对象中读取短错误码和错误详情
++ void setResult(Result result)
+}
+
+class com.youkeda.application.art.member.model.Result<D> {
+// 结果成功/失败
+@JsonProperty("isSuccess")
+- boolean success = false
+
+// 短错误码
+- String code
+// 错误详细描述
+- String message
+
+// 具体的结果数据
+- D data
+
+----
+
++ {static} <T> Result<T> create()
+
++ Result<D> setCode(String code)
+
++ Result<D> setMessage(String message)
+
++ Result<D> setData(D data)
+
+// 其它的普通 getter / setter 方法省略
+}
+
+class com.youkeda.application.art.member.service.impl.DepartmentServiceImpl {
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- DepartmentRepository departmentRepository
+
+@Autowired
+- AccountService accountService
+
+@Autowired
+- UserService userService
+
+@Autowired
+- DepartmentAccountRepository departmentAccountRepository
+
+@Autowired
+- CompanyService companyService
+
+@Autowired
+- DepartmentAccountCountService countService
+
+----
+
+}
+
+class com.youkeda.application.art.member.service.impl.DepartmentAccountServiceImpl {
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- DepartmentRepository departmentRepository
+
+@Autowired
+- AccountService accountService
+
+@Autowired
+- UserService userService
+
+@Autowired
+- DepartmentAccountRepository departmentAccountRepository
+
+@Autowired
+- CompanyService companyService
+
+@Autowired
+- DepartmentAccountCountService countService
+
+@Autowired
+- DepartmentService departmentService
+
+----
+
+}
+
+class com.youkeda.application.art.member.service.impl.DepartmentAccountCountServiceImpl {
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- DepartmentRepository departmentRepository
+
+@Autowired
+- DepartmentAccountRepository departmentAccountRepository
+
+----
+
+}
+
+interface com.youkeda.application.art.member.repository.DepartmentRepository {
+
+----
+
++ List<Department> findDepartmentByCompanyId(ObjectId companyId);
+
++ List<Department> findDepartmentByParentId(ObjectId parentId);
+
+@CountQuery("{parentId:?0}")
++ long countByParentId(ObjectId departmentId);
+}
+
+interface com.youkeda.application.art.member.repository.DepartmentAccountRepository {
+
+----
+
+@CountQuery("{departmentId:?0}")
++ long countByDepartmentId(ObjectId departmentId);
+}
+
+class com.youkeda.application.art.member.param.DepartmentAccountParam {
+// 根据部门 ID 查询所有的员工账号
+- String departmentId;
+
+----
+
+}
+
+class com.youkeda.model.BasePagingParam <DepartmentAccountParam> {
+// 页数
+- int pagination = 0
+
+// 每页数量
+- int pageSize = 15
+
+----
+
++ T setPagination(int pagination)
+
+}
+
+com.youkeda.application.art.member.service.DepartmentService .up.> com.youkeda.application.art.member.exception.ErrorException
+com.youkeda.application.art.member.service.DepartmentAccountService .up.> com.youkeda.application.art.member.exception.ErrorException
+
+com.youkeda.application.art.member.exception.ErrorException -up-|> java.lang.Exception : extends
+com.youkeda.application.art.member.exception.ErrorException .left.> com.youkeda.application.art.member.model.Result : dependency
+
+com.youkeda.application.art.member.model.Result .up.|> java.io.Serializable : implements
+
+com.youkeda.application.art.member.service.impl.DepartmentServiceImpl .up.|> com.youkeda.application.art.member.service.DepartmentService
+com.youkeda.application.art.member.service.impl.DepartmentAccountServiceImpl .up.|> com.youkeda.application.art.member.service.DepartmentAccountService
+com.youkeda.application.art.member.service.impl.DepartmentAccountCountServiceImpl .up.|> com.youkeda.application.art.member.service.DepartmentAccountCountService
+
+com.youkeda.application.art.member.param.DepartmentAccountParam --|> com.youkeda.model.BasePagingParam : extends
+com.youkeda.application.art.member.service.DepartmentAccountService ..> com.youkeda.application.art.member.param.DepartmentAccountParam
+
+com.youkeda.application.art.member.service.impl.DepartmentServiceImpl ..> com.youkeda.application.art.member.repository.DepartmentRepository
+com.youkeda.application.art.member.service.impl.DepartmentServiceImpl ..> com.youkeda.application.art.member.repository.DepartmentAccountRepository
+
+@enduml

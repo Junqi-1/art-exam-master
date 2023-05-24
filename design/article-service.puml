@@ -1,0 +1,112 @@
+@startuml
+class com.youkeda.application.art.article.param.QueryArticlePagingParam {
+// 文章类型
+- String articleCategory
+
+// 排序类型
+- OrderByType orderByType
+
+// 关键字
+- String keyWord
+
+// 文章标题
+- String title
+
+// 公司id
+- String companyId
+
+// 状态
+- String status
+
+// 作者
+- String author
+
+// 根据多个作者查询
+- List<String> authors
+
+// 只查询自己的
+- boolean filterMe
+
+// 账户 id
+- String accountId
+
+// 是否需要文章详情
+- boolean showArticleDetail
+
+====
+
+}
+
+interface com.youkeda.application.art.article.service.ArticleService {
+
+====
+
+// 添加或更新
++ Result<Article> saveArticle(Article article)
+
+// 添加文章详情
++ ArticleDetail saveArticleDetail(ArticleDetail articleDetail)
+
+// 分页获取文章
++ Paging<Article> queryPagingArticle(QueryArticlePagingParam param)
+
+// 获取单个文章信息
++ Article getArticle(String articleId, boolean content)
+
+// 删除文章，同时删除文章极其详情
++ boolean delete(String articleId)
+
+// 获取所有的文章类别
++ List<String> getArticleCategory()
+
+// 根据关联的活动类型分页查询
++ Paging<Article> getArticleByRefCategory(QueryArticleRefCategoryPagingParam param)
+
+// 获取当前文章的下一篇
++ Article getNextArticle(String articleId, boolean next, String articleCategory, String companyId,
+                                                    RefCategory refCategory)
+}
+
+class com.youkeda.application.art.article.param.QueryArticleRefCategoryPagingParam {
+// 关联活动类型
+- RefCategory refCategory
+
+// 公司id
+- String companyId
+
+====
+
+}
+class com.youkeda.application.art.article.service.impl.ArticleServiceImpl {
+- MongoTemplate mongoTemplate
+
+====
+
+}
+
+enum com.youkeda.application.art.article.model.ArticleCategoryDefine {
++ 政策专区
+
++ 下载专区
+}
+
+enum com.youkeda.application.art.article.model.OrderByType {
+// 阅读数
++ READ
+
+// 点赞数
++ LIKE
+}
+
+com.youkeda.model.BasePagingParam <|-down- com.youkeda.application.art.article.param.QueryArticlePagingParam
+com.youkeda.model.BasePagingParam <|-down- com.youkeda.application.art.article.param.QueryArticleRefCategoryPagingParam
+com.youkeda.application.art.article.service.ArticleService <|.. com.youkeda.application.art.article.service.impl.ArticleServiceImpl
+
+com.youkeda.application.art.article.service.ArticleService .up.> com.youkeda.application.art.article.param.QueryArticleRefCategoryPagingParam : Dependency
+com.youkeda.application.art.article.service.ArticleService ..> com.youkeda.application.art.article.param.QueryArticlePagingParam : Dependency
+
+com.youkeda.application.art.article.param.QueryArticlePagingParam --> com.youkeda.application.art.article.model.OrderByType : Association
+
+com.youkeda.application.art.article.service.impl.ArticleServiceImpl .up.> com.youkeda.application.art.article.model.ArticleCategoryDefine : Dependency
+
+@enduml

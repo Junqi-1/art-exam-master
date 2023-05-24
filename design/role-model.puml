@@ -1,0 +1,81 @@
+@startuml
+class com.youkeda.application.art.role.model.PermissionAccount {
+
+// 权限主键
+- String permissionId
+
+// 用户主键
+- String accountId
+
+----
+
+}
+
+class com.youkeda.application.art.role.model.Permission {
+// 权限中文标题
+- String title
+
+// 权限名称，英文单词
+- String name
+
+// 权限备注
+- String remark
+
+// 关联的其他主键
+- String refId
+
+// 关联的其他数据表名称
+- String refName
+
+----
+
+}
+
+enum com.youkeda.application.art.role.model.RoleType {
+
+// 系统角色
++  SYSTEM
+
+// 自定义角色
++  CUSTOM
+}
+
+class com.youkeda.application.art.role.model.Role {
+// 角色标题
+- String title
+
+// 角色名称
+- String name
+
+// 角色备注
+- String remark
+
+// 角色类型
+- RoleType roleType
+
+// 角色关联的用户
+- List<String> accountIds
+
+// 角色关联的部门
+- List<String> departmentIds
+
+// 关联的权限id
+- List<String> permissionIds
+
+// 过期时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime expire
+
+----
+
+}
+
+
+com.youkeda.application.art.role.model.Base <|-- com.youkeda.application.art.role.model.PermissionAccount
+com.youkeda.application.art.role.model.Base <|-- com.youkeda.application.art.role.model.Permission
+com.youkeda.application.art.role.model.Base <|-- com.youkeda.application.art.role.model.Role
+
+com.youkeda.application.art.role.model.Role --> com.youkeda.application.art.role.model.RoleType
+
+com.youkeda.application.art.role.model.PermissionAccount .right. com.youkeda.application.art.role.model.Permission
+@enduml

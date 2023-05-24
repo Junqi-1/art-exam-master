@@ -1,0 +1,217 @@
+@startuml
+class com.youkeda.application.art.exam.api.RegistrationPointApi {
+@Autowired
+- RegistrationPointService registrationPointService
+@Autowired
+- RoleService roleService
+
+====
+
+// 保存报名点
+@PostMapping(value = "/save")
+@ResponseBody
++ Result<RegistrationPoint> add(
+  @RequestBody RegistrationPoint registrationPoint,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+// 分页查询授权的报名点
+@GetMapping(value = "/querypaging")
+@ResponseBody
++ Result<Paging<RegistrationPoint>> querypaging(
+  RegistrationPointPagingParam registrationPointPagingParam,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY
+  )
+
+// 根据一个考级点id查询下属的所有报名点
+@GetMapping(value = "/querypagingplus")
+@ResponseBody
++ Result<List<RegistrationPoint>> queryPlus(RegistrationPointPagingParam registrationPointPagingParam)
+
+// 删除报名点
+@GetMapping(value = "/delete")
+@ResponseBody
++ Result<Boolean> delete(@RequestParam("id") String id)
+
+// 根据 id 查询报名点
+@GetMapping(value = "/get")
+@ResponseBody
++ Result<RegistrationPoint> get(@RequestParam("id") String id)
+}
+
+note top of com.youkeda.application.art.exam.api.RegistrationPointApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/registrationPoint")
+end note
+
+class com.youkeda.application.art.exam.api.ExamApi {
+
+@Autowired
+- ExamService examService
+
+@Autowired
+- RoleService roleService
+
+====
+
+// 新增考试
+@PostMapping(value = "/add")
+@ResponseBody
++ Result<Exam> add(@RequestBody Exam exam)
+
+// 修改考试
+@PostMapping(value = "/update")
+@ResponseBody
++ Result<Exam> update(@RequestBody Exam exam)
+
+// 删除考试
+@PostMapping(value = "/delete")
+@ResponseBody
++ Result<Exam> delete(@RequestParam("examId") String examId)
+
+// 根据考级点查询所有考试
+@GetMapping(value = "/query/orgid")
+@ResponseBody
++ Result<List<Exam>> queryByOrgId(@RequestParam("orgId") String orgId)
+
+// 获取当前正在进行的考试
+@GetMapping(value = "/get/current")
+@ResponseBody
++ Result<Exam> getCurrentExam(@RequestParam("orgId") String orgId)
+
+// 上传发放单或结算单
+@PostMapping(value = "/upload/payorstate")
+@ResponseBody
++ Result<Exam> upload(
+  @RequestParam(value = "stateUrl", required = false) String stateUrl,
+  @RequestParam(value = "payUrl", required = false) String payUrl,
+  @RequestParam(value = "examId") String examId
+  )
+
+// 查询可视的考试
+@GetMapping(value = "/query/role")
+@ResponseBody
++ Result<List<Exam>> queryByRole(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("orgId") String orgId
+  )
+
+// 查询有无修改权限
+@GetMapping(value = "/query/edit")
+@ResponseBody
++ Result editExamPermission(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("orgId") String orgId
+)
+
+// 根据考试 ID 查询一条考试
+@GetMapping(value = "/get")
+@ResponseBody
++ Result<Exam> get(@RequestParam("id") String id)
+
+// 根据考试 ID 查询是否可以报名
+// 当前时间大于考试的开始报名时间，但小于报名结束时间，即为可以报名
+@GetMapping(value = "/canSignup")
+@ResponseBody
++ Result<Boolean> canSignup(@RequestParam("id") String id)
+}
+
+note top of com.youkeda.application.art.exam.api.ExamApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/exam")
+end note
+
+class com.youkeda.application.art.exam.api.ExamOrgApi {
+@Autowired
+- ExamOrgService examOrgService
+
+====
+
+// 新增考级点
+    @PostMapping(value = "/add")
+    @ResponseBody
++ Result<ExamOrg> add(@RequestBody ExamOrg examOrg)
+
+// 修改考级点
+    @PostMapping(value = "/update")
+    @ResponseBody
++ Result<ExamOrg> update(@RequestBody ExamOrg examOrg)
+
+// 删除考级点
+    @PostMapping(value = "/delete")
+    @ResponseBody
++ Result<ExamOrg> delete(@RequestParam("examOrgId") String examOrgId)
+
+// 根据协会查询考级点
+    @GetMapping(value = "/query/association")
+    @ResponseBody
++ Result<List<ExamOrg>> queryByAssociation(@RequestParam("association") Association association)
+
+// 根据参数查询考级点
+    @GetMapping(value = "/query")
+    @ResponseBody
++ Result<List<ExamOrg>> query(OrgQueryParam param)
+
+// 根据条件分页查询
+    @GetMapping(value = "/pagequery")
+    @ResponseBody
++ Result<Paging<ExamOrg>> pageQuery(OrgQueryParam param)
+
+// 查询所有的协会
+    @GetMapping(value = "/query/associations")
+    @ResponseBody
++ Result<List<String>> queryAllAssociations()
+
+// 根据关键字查询
+    @GetMapping(value = "/query/keyword")
+    @ResponseBody
++ Result<List<ExamOrg>> queryByKeyword(@RequestParam("keyword") String keyword)
+
+// 查询所有可以被选为考级点负责人用户
+    @GetMapping(value = "/query/examiners")
+    @ResponseBody
++ Result<List<Account>> queryAllExaminers(
+  @RequestParam("departmentId") String departmentId,
+  @RequestParam("keyword") String keyword,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+// 根据领队或负责人 id 查询
+    @GetMapping(value = "/query/examinerid")
+    @ResponseBody
++ Result<Paging<ExamOrg>> queryByExaminerId(OrgQueryParam param)
+
+// 根据 ID 查询考级点
+    @GetMapping(value = "/get")
+    @ResponseBody
++ Result<ExamOrg> get(@RequestParam("examOrgId") String examOrgId)
+
+// 查询可视的考级点（根据权限判断）
+    @GetMapping(value = "/query/role")
+    @ResponseBody
++ Result<Paging<ExamOrg>> queryByRole(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  OrgQueryParam orgQueryParam
+  )
+
+// 查询成员有无修改权限
+    @GetMapping(value = "/query/edit")
+    @ResponseBody
++ Result<List<String>> editOrgPermission(@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser)
+
+// 查询最大的考级点编号
+    @GetMapping(value = "/get/maxnum")
+    @ResponseBody
++ Result<String> getLargestNum()
+}
+
+note top of com.youkeda.application.art.exam.api.ExamOrgApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/examorg")
+end note
+
+
+@enduml

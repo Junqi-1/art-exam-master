@@ -1,0 +1,87 @@
+@startuml
+
+
+interface com.youkeda.application.art.member.service.CompanyService {
+
+// 创建企业，生成一个code
++ Company save(Company company)
+
+// 获取企业
++ Company find(CompanyQueryParam param)
+
+// 根据accountId查询公司信息
++ List<Company> queryByAccountId(String accountId)
+
+// 根据域名查询公司信息
++ Company getByDomain(String domainUrl)
+
+// 根据主键id删除公司
++ void delete(String companyId)
+
+// 根据主键id查询企业信息
++ Company get(String companyId)
+
+----
+
+}
+
+class com.youkeda.application.art.member.param.CompanyQueryParam {
+// 根据编码查询
+- String code
+// 根据域名查询
+- String domain
+
+----
+// 创建查询参数实例对象
++ {static} CompanyQueryParam create()
+}
+
+class com.youkeda.model.Company {
+}
+
+interface org.springframework.data.mongodb.repository.MongoRepository <Company, String> {
+}
+
+interface com.youkeda.application.art.member.repository.CompanyRepository #LightYellow##FireBrick {
+// 根据 code 查询公司信息
++ Optional<Company> findByCode(String code);
+
+// 根据 domain 查询公司信息
++ Optional<Company> findByDomain(String domain);
+
+// 根据accountId查询公司信息
++ Optional<List<Company>> findByOwnerUserId(String accountId);
+
+----
+
+}
+
+class com.youkeda.application.art.member.service.impl.CompanyServiceImpl #LightYellow##FireBrick {
+- CompanyRepository companyRepository
+- MongoTemplate mongoTemplate
+
+----
+
+@PostConstruct
++ void init()
+}
+
+class com.youkeda.application.art.member.util.IDUtils #CornflowerBlue##FireBrick {
+----
+// 获取唯一ID
++ {static} String getId()
+
+// 根据时间生成ID，不保证唯一
++ {static} String generateId()
+}
+
+
+com.youkeda.application.art.member.service.CompanyService .right.> com.youkeda.application.art.member.param.CompanyQueryParam
+com.youkeda.application.art.member.service.CompanyService .up.> com.youkeda.model.Company
+
+com.youkeda.application.art.member.service.CompanyService <|.. com.youkeda.application.art.member.service.impl.CompanyServiceImpl
+com.youkeda.application.art.member.service.impl.CompanyServiceImpl .down.> com.youkeda.application.art.member.repository.CompanyRepository
+com.youkeda.application.art.member.service.impl.CompanyServiceImpl .right.> com.youkeda.application.art.member.util.IDUtils
+
+com.youkeda.application.art.member.repository.CompanyRepository .right.|>  org.springframework.data.mongodb.repository.MongoRepository: extends
+@enduml

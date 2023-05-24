@@ -1,0 +1,52 @@
+@startuml
+class com.youkeda.application.art.exam.model.Exam {
+- String name
+- LocalDateTime signUpStart
+- LocalDateTime signUpEnd
+- LocalDateTime examStart
+- LocalDateTime examEnd
+- String examOrgId
+- ExamOrg examOrg
+- String registrationId
+- RegistrationPoint registrationPoint
+- ExamStage examStage
+- String paymentUrl
+- String statementsUrl
+- String fileName
+- String fileUrl
+- long signUpNum
++ LocalDateTime getSignUpStart()
++ void setSignUpStart(LocalDateTime)
++ LocalDateTime getSignUpEnd()
++ void setSignUpEnd(LocalDateTime)
++ LocalDateTime getExamStart()
++ void setExamStart(LocalDateTime)
++ LocalDateTime getExamEnd()
++ void setExamEnd(LocalDateTime)
++ String getExamOrgId()
++ void setExamOrgId(String)
++ String getPaymentUrl()
++ void setPaymentUrl(String)
++ String getStatementsUrl()
++ void setStatementsUrl(String)
++ String getFileName()
++ void setFileName(String)
++ String getFileUrl()
++ void setFileUrl(String)
++ String getName()
++ void setName(String)
++ ExamOrg getExamOrg()
++ void setExamOrg(ExamOrg)
++ long getSignUpNum()
++ void setSignUpNum(long)
++ String getRegistrationId()
++ void setRegistrationId(String)
++ RegistrationPoint getRegistrationPoint()
++ void setRegistrationPoint(RegistrationPoint)
++ ExamStage getExamStage()
++ void setExamStage(ExamStage)
+}
+
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.exam.model.Exam
+@enduml

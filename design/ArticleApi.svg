@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1431px" preserveAspectRatio="none" style="width:685px;height:1431px;background:#FFFFFF;" version="1.1" viewBox="0 0 685 1431" width="685px" zoomAndPan="magnify"><defs/><g><!--MD5=[49648933a4d50db3c5fd5842cb2f2cc8]
+cluster com.youkeda.application.art.article.api--><g id="cluster_com.youkeda.application.art.article.api"><path d="M8.5,72 L281.5,72 A3.75,3.75 0 0 1 284,74.5 L291,94.4883 L675.5,94.4883 A2.5,2.5 0 0 1 678,96.9883 L678,1421.5 A2.5,2.5 0 0 1 675.5,1424 L8.5,1424 A2.5,2.5 0 0 1 6,1421.5 L6,74.5 A2.5,2.5 0 0 1 8.5,72 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="291" y1="94.4883" y2="94.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="272" x="10" y="87.5352">com.youkeda.application.art.article.api</text></g><!--MD5=[fc138de186892664469223d6b24d94c7]
+class com.youkeda.application.art.article.api.ArticleApi--><g id="elem_com.youkeda.application.art.article.api.ArticleApi"><rect codeLine="1" fill="#F1F1F1" height="1301.1094" id="com.youkeda.application.art.article.api.ArticleApi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="639" x="22.5" y="107"/><ellipse cx="304.25" cy="123" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M306.7231,129.1431 Q306.1421,129.4419 305.5029,129.5913 Q304.8638,129.7407 304.1582,129.7407 Q301.6514,129.7407 300.3315,128.0889 Q299.0117,126.437 299.0117,123.3159 Q299.0117,120.1865 300.3315,118.5347 Q301.6514,116.8828 304.1582,116.8828 Q304.8638,116.8828 305.5112,117.0322 Q306.1587,117.1816 306.7231,117.4805 L306.7231,120.2031 Q306.0923,119.6221 305.4988,119.3523 Q304.9053,119.0825 304.2744,119.0825 Q302.9297,119.0825 302.2449,120.1492 Q301.5601,121.2158 301.5601,123.3159 Q301.5601,125.4077 302.2449,126.4744 Q302.9297,127.541 304.2744,127.541 Q304.9053,127.541 305.4988,127.2712 Q306.0923,127.0015 306.7231,126.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="324.75" y="128.291">ArticleApi</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="660.5" y1="139" y2="139"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="42.5" y="156.5352">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30.5" y="163.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="42.5" y="173.0234">ArticleService articleService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="189.5117"> </text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="660.5" y1="196.4648" y2="196.4648"/><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="660.5" y1="198.4648" y2="198.4648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="214"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="42.5" y="230.4883">// 添加或更新文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="42.5" y="246.9766">@PostMapping(path = "/save")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="263.4648">@ResponseBody</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="42.5" y="279.9531">@NeedLogin</text><ellipse cx="33.5" cy="289.9063" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="42.5" y="296.4414">Result&lt;Article&gt; save(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="495" x="42.5" y="312.9297">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="42.5" y="329.418">@RequestBody Article article</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="345.9063">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="362.3945"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="42.5" y="378.8828">// 分页查询文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="42.5" y="395.3711">@GetMapping(path = "/paging")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="411.8594">@ResponseBody</text><ellipse cx="33.5" cy="421.8125" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="269" x="42.5" y="428.3477">Result&lt;Paging&lt;Article&gt;&gt; queryArticle(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227" x="42.5" y="444.8359">QueryArticlePagingParam param,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="609" x="42.5" y="461.3242">@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="477.8125">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="494.3008"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="42.5" y="510.7891">// 点击下一篇文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="42.5" y="527.2773">@GetMapping(path = "/getnextarticle")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="543.7656">@ResponseBody</text><ellipse cx="33.5" cy="553.7188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="215" x="42.5" y="560.2539">Result&lt;Article&gt; getNextArticle(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="613" x="42.5" y="576.7422">@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="293" x="42.5" y="593.2305">@RequestParam("articleId") String articleId,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="506" x="42.5" y="609.7188">@RequestParam(value = "companyId", required = false) String companyId,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="564" x="42.5" y="626.207">@RequestParam(value = "articleCategory", required = false) String articleCategory,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="557" x="42.5" y="642.6953">@RequestParam(value = "refCategory", required = false) RefCategory refCategory</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="659.1836">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="675.6719"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="42.5" y="692.1602">// 点击上一篇文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="295" x="42.5" y="708.6484">@GetMapping(path = "/getpreviousarticle")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="725.1367">@ResponseBody</text><ellipse cx="33.5" cy="735.0898" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="241" x="42.5" y="741.625">Result&lt;Article&gt; getPreviousArticle(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="613" x="42.5" y="758.1133">@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="293" x="42.5" y="774.6016">@RequestParam("articleId") String articleId,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="561" x="42.5" y="791.0898">@RequestParam(value = "refCategory", required = false) RefCategory refCategory,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="506" x="42.5" y="807.5781">@RequestParam(value = "companyId", required = false) String companyId,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="560" x="42.5" y="824.0664">@RequestParam(value = "articleCategory", required = false) String articleCategory</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="840.5547">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="857.043"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="42.5" y="873.5313">// 获取单个文章详情</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="236" x="42.5" y="890.0195">@GetMapping(path = "/getarticle")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="906.5078">@ResponseBody</text><ellipse cx="33.5" cy="916.4609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="393" x="42.5" y="922.9961">Result&lt;Article&gt; getArticle(@RequestParam("id") String id)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="939.4844"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="42.5" y="955.9727">// 删除文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="42.5" y="972.4609">@NeedLogin</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="42.5" y="988.9492">@PostMapping(path = "/delete")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1005.4375">@ResponseBody</text><ellipse cx="33.5" cy="1015.3906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="380" x="42.5" y="1021.9258">Result&lt;Boolean&gt; delete(@RequestParam("id") String id)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="1038.4141"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="42.5" y="1054.9023">// 获取所有文章类型</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="295" x="42.5" y="1071.3906">@GetMapping(path = "/getarticlecategory")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1087.8789">@ResponseBody</text><ellipse cx="33.5" cy="1097.832" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="292" x="42.5" y="1104.3672">Result&lt;List&lt;String&gt;&gt; getArticleCategory()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="1120.8555"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="42.5" y="1137.3438">// 根据refCategory获取文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="325" x="42.5" y="1153.832">@GetMapping(path = "/getarticlebyrecategory")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1170.3203">@ResponseBody</text><ellipse cx="33.5" cy="1180.2734" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="351" x="42.5" y="1186.8086">Result&lt;Paging&lt;Article&gt;&gt; getArticleByRefCategory(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="613" x="42.5" y="1203.2969">@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="307" x="42.5" y="1219.7852">QueryArticleRefCategoryPagingParam param</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="1236.2734">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="1252.7617"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="42.5" y="1269.25">// 根据refCategory获取文章</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="345" x="42.5" y="1285.7383">@GetMapping(path = "/getarticlebyrecategorylist")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1302.2266">@ResponseBody</text><ellipse cx="33.5" cy="1312.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="334" x="42.5" y="1318.7148">Result&lt;List&lt;Article&gt;&gt; getArticleByRefCategorys(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="613" x="42.5" y="1335.2031">@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="388" x="42.5" y="1351.6914">@RequestParam("refCategory") RefCategory refCategory,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="502" x="42.5" y="1368.1797">@RequestParam(value = "companyId", required = false) String companyId</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="1384.668">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="1401.1563"> </text></g><g id="elem_GMN1159"><path d="M195.5,6 L195.5,46.6211 A0,0 0 0 0 195.5,46.6211 L338,46.6211 L342,106.95 L346,46.6211 L488.5,46.6211 A0,0 0 0 0 488.5,46.6211 L488.5,16 L478.5,6 L195.5,6 A0,0 0 0 0 195.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M478.5,6 L478.5,16 L488.5,16 L478.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="201.5" y="23.5684">@Controller</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="272" x="201.5" y="38.8789">@RequestMapping(value = "/api/examorg")</text></g><!--MD5=[dbb6f91548d5322bed05fd0bbe7c7fb0]
+@startuml
+class com.youkeda.application.art.article.api.ArticleApi {
+@Autowired
+- ArticleService articleService
+
+====
+
+// 添加或更新文章
+@PostMapping(path = "/save")
+@ResponseBody
+@NeedLogin
++ Result<Article> save(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestBody Article article
+  )
+
+// 分页查询文章
+@GetMapping(path = "/paging")
+@ResponseBody
++ Result<Paging<Article>> queryArticle(
+QueryArticlePagingParam param,
+@SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser
+)
+
+// 点击下一篇文章
+@GetMapping(path = "/getnextarticle")
+@ResponseBody
++ Result<Article> getNextArticle(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("articleId") String articleId,
+        @RequestParam(value = "companyId", required = false) String companyId,
+        @RequestParam(value = "articleCategory", required = false) String articleCategory,
+        @RequestParam(value = "refCategory", required = false) RefCategory refCategory
+)
+
+// 点击上一篇文章
+@GetMapping(path = "/getpreviousarticle")
+@ResponseBody
++ Result<Article> getPreviousArticle(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("articleId") String articleId,
+        @RequestParam(value = "refCategory", required = false) RefCategory refCategory,
+        @RequestParam(value = "companyId", required = false) String companyId,
+        @RequestParam(value = "articleCategory", required = false) String articleCategory
+)
+
+// 获取单个文章详情
+@GetMapping(path = "/getarticle")
+@ResponseBody
++ Result<Article> getArticle(@RequestParam("id") String id)
+
+// 删除文章
+@NeedLogin
+@PostMapping(path = "/delete")
+@ResponseBody
++ Result<Boolean> delete(@RequestParam("id") String id)
+
+// 获取所有文章类型
+@GetMapping(path = "/getarticlecategory")
+@ResponseBody
++ Result<List<String>> getArticleCategory()
+
+// 根据refCategory获取文章
+@GetMapping(path = "/getarticlebyrecategory")
+@ResponseBody
++ Result<Paging<Article>> getArticleByRefCategory(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        QueryArticleRefCategoryPagingParam param
+)
+
+// 根据refCategory获取文章
+@GetMapping(path = "/getarticlebyrecategorylist")
+@ResponseBody
++ Result<List<Article>> getArticleByRefCategorys(
+        @SessionAttribute(value = MemberUtil.LOGIN_KEY, required = false) LoginUser loginUser,
+        @RequestParam("refCategory") RefCategory refCategory,
+        @RequestParam(value = "companyId", required = false) String companyId
+)
+
+}
+
+note top of com.youkeda.application.art.article.api.ArticleApi
+@Controller
+@RequestMapping(value = "/api/examorg")
+end note
+@enduml
+
+PlantUML version 1.2022.6(Wed Jun 22 01:34:49 CST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

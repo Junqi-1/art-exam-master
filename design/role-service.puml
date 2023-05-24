@@ -1,0 +1,266 @@
+@startuml
+
+class com.youkeda.application.art.role.param.PagePermissionAccountParam {
+
+// 权限主键
+- String permissionId
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.RoleQueryParam {
+// 角色主键
+- List<String> roleIds
+
+// 用户主键
+- String accountId
+
+// 公司id
+- String companyId
+
+// 根据role 查询用户
+- String roleId
+
+// 根据权限id查询角色
+- String permissionId
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.PermissionAccountsParam {
+// 权限id
+- String permissionId
+
+// 用户主键
+- String accountId
+
+// 关联id
+- String refId
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.PermissionBatchAddParam {
+// 权限
+- String permissionId
+
+// 权限
+- List<String> permissionIds
+
+// 多用户 ids
+- List<String> accountIds
+
+// 单用户 id
+- String accountId
+
+// 公司
+- String companyId
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.PermissionQueryParam {
+// 公司id
+- String companyId
+
+// 权限名称
+- String name
+
+// 关联id
+- String refId
+
+// 权限主键
+- List<String> permissionIds
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.PagePermissionQueryParam {
+// 公司id
+- String companyId
+
+// 关键字
+- String keyword
+
+----
+
+}
+
+class com.youkeda.application.art.role.param.BatchUpdateRoleOptions {
+// 查询语句
+- Query query
+
+// 修改语句
+- Update update
+
+// 是否修改&插入模式
+- boolean upsert
+
+// 是否批量模式
+- boolean multi
+
+----
+
+}
+
+interface com.youkeda.application.art.role.service.AuthService {
+
+----
+
+// 根据accountId和refId查询用户是否拥有权限
++ boolean authByRefId(String accountId, String refId)
+
+// 根据用户和权限查询用户是否有权限
++ boolean authByPermissionId(String accountId, String permissionId)
+
+// 查询用户权限
++ List<Role> getRoles(String accountId, String companyId)
+}
+
+interface com.youkeda.application.art.role.service.PermissionService {
+
+----
+
+// 添加或修改权限
++ Permission save(Permission permission)
+
+// 删除权限
++ Result delete(String permissionId)
+
+// 查询权限
++ List<Permission> queryByAccountId(String accountId)
+
+// 查询权限
++ List<Permission> query(PermissionQueryParam param)
+
+// 分页查询权限
++ Paging<Permission> pageQuery(PagePermissionQueryParam param)
+}
+
+interface com.youkeda.application.art.role.service.PermissionAccountsService {
+
+----
+
+// 添加或者修改权限用户关系
++ PermissionAccount save(PermissionAccount permissionAccount)
+
+// 权限和用户查询
++ List<PermissionAccount> query(PermissionAccountsParam permissionAccountsParam)
+
+// 删除权限和人的关联关系
++ Boolean delete(String permissionId, List<String> accountIds)
+
+// 分页查询
++ Paging<PermissionAccount> pageQuery(PagePermissionAccountParam param)
+
+// 批量插入
++ Boolean batchAdd(PermissionBatchAddParam param)
+}
+
+interface com.youkeda.application.art.role.service.RoleService {
+
+----
+
+// 添加或修改角色
++ Role save(Role)
+
+// 查询角色
++ List<Role> query(RoleQueryParam param)
+
+// 删除角色
++ Role delete(String id)
+
+// 删除用户角色
++ Role removeRole(List<String> accountId, String roleId)
+
+// 根据角色查询用户
++ Paging<Account> queryByRoleId(RoleQueryParam roleQueryParam)
+
+// 根据角色查询用户
++ List<Account> queryAllByRoleId(String roleId, String companyId)
+
+// 批量添加用户或者部门权限
++ Role batchAddRole(String roleId, List<String> accountIds, List<String> departmentIds)
+
+// 批量添加用户或者部门权限
++ boolean batchAddRolePermission(List<String> roleIds, String permissionId)
+
+// 根据角色查询部门
++ List<Department> queryDepartmentByRoleId(String roleId)
+
+// 批量更新
++ Boolean batchUpdate(List<Role> roles)
+
+// 根据角色主键查询角色
++ Role get(String roleId)
+
+// 删除角色权限
++ Boolean deletePermissions(String permissionId,List<String> roleIds)
+}
+
+class com.youkeda.application.art.role.service.impl.AuthServiceImpl {
+
+- PermissionAccountsService permissionAccountsService
+
+- RoleService roleService
+
+----
+
+}
+
+class com.youkeda.application.art.role.service.impl.PermissionAccountsServiceImpl {
+
+- MongoTemplate mongoTemplate
+
+----
+
+}
+
+class com.youkeda.application.art.role.service.impl.PermissionServiceImpl {
+
+- MongoTemplate mongoTemplate
+
+- PermissionAccountsService permissionAccountsService
+
+- RoleService roleService
+
+----
+
+}
+
+class com.youkeda.application.art.role.service.impl.RoleServiceImpl {
+
+- MongoTemplate mongoTemplate
+
+- AccountService accountService
+
+- DepartmentService departmentService
+
+----
+
+}
+
+com.youkeda.model.BasePagingParam <|-down- com.youkeda.application.art.role.param.PagePermissionAccountParam
+com.youkeda.model.BasePagingParam <|-down- com.youkeda.application.art.role.param.RoleQueryParam
+com.youkeda.model.BasePagingParam <|-down- com.youkeda.application.art.role.param.PagePermissionQueryParam
+
+com.youkeda.application.art.role.service.RoleService .up.> com.youkeda.application.art.role.param.RoleQueryParam
+
+com.youkeda.application.art.role.service.PermissionAccountsService .up.> com.youkeda.application.art.role.param.PermissionAccountsParam
+com.youkeda.application.art.role.service.PermissionAccountsService .up.> com.youkeda.application.art.role.param.PagePermissionAccountParam
+com.youkeda.application.art.role.service.PermissionAccountsService .up.> com.youkeda.application.art.role.param.PermissionBatchAddParam
+
+com.youkeda.application.art.role.service.PermissionService .up.> com.youkeda.application.art.role.param.PermissionQueryParam
+
+com.youkeda.application.art.role.service.impl.AuthServiceImpl .up.|> com.youkeda.application.art.role.service.AuthService : implements
+com.youkeda.application.art.role.service.impl.PermissionAccountsServiceImpl .up.|> com.youkeda.application.art.role.service.PermissionAccountsService : implements
+com.youkeda.application.art.role.service.impl.PermissionServiceImpl .up.|> com.youkeda.application.art.role.service.PermissionService : implements
+com.youkeda.application.art.role.service.impl.RoleServiceImpl .up.|> com.youkeda.application.art.role.service.RoleService : implements
+
+com.youkeda.application.art.role.service.impl.RoleServiceImpl ..> com.youkeda.application.art.role.param.BatchUpdateRoleOptions
+@enduml

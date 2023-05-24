@@ -1,0 +1,122 @@
+@startuml
+interface java.io.Serializable {
+}
+
+class com.youkeda.model.Base<T> {
+// 主键
+@Id
+# String id
+
+// 公司 id，MongoDB自动转为ObjectId
+@Field(targetType = FieldType.OBJECT_ID)
+# String companyId = Company.DEFAULT.id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+----
+
++ String getId()
++ T setId(String id)
+}
+
+class com.youkeda.model.Company {
+@Transient
++ {static} final Company DEFAULT = new Company("5e72e0bfad8bcb7392fbcb79", "default", "default")
+
+- {static} long serialVersionUID
+
+@Id
+# String id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+// 企业编码
+- String code
+// 企业域
+- String domain
+// 企业名字全称
+- String name
+// 企业简称
+- String shortName
+// 企业 owner id
+- String ownerUserId
+
+----
+
++ <<Create>> Company()
++ <<Create>> Company(String id, String name, String code)
+}
+
+class com.youkeda.application.art.member.model.User {
+- {static} long serialVersionUID
+
+// 命名空间，默认存短ID，用户可以自定义
+- String namespace
+// 用户个人签名
+- String description
+// 手机号
+- String mobile
+// 邮箱
+- String email
+// 用户名
+- String userName
+// 用户名称
+- String name
+// 昵称
+- String nickName
+// 头像
+- String avatarUrl
+// 性别
+- Gender gender
+// 用户状态
+- UserStatus status
+
+// 出生年月日
+@JsonFormat(pattern = "yyyy-MM-dd")
+- Date birthday
+
+@JsonSerialize(using = NullSerializer.class)
+- String pwd
+
+// 密码盐值
+@JsonIgnore
+- String slot = "ykd"
+
+// 用户协议版本
+- String agreementVersion
+
+----
+
++ {static} User create()
+}
+
+enum com.youkeda.application.art.member.model.Gender {
++  male
++  female
++  unknow
+}
+
+enum com.youkeda.application.art.member.model.UserStatus {
++  enabled
++  disabled
++  deleted
+}
+
+java.io.Serializable <|.. com.youkeda.model.Base : implements
+java.io.Serializable <|.. com.youkeda.model.Company : implements
+com.youkeda.model.Base .right.> com.youkeda.model.Company
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.User : extends
+
+com.youkeda.application.art.member.model.User .down.> com.youkeda.application.art.member.model.Gender
+com.youkeda.application.art.member.model.User .down.> com.youkeda.application.art.member.model.UserStatus
+
+@enduml

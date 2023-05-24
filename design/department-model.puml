@@ -1,0 +1,69 @@
+@startuml
+
+interface com.youkeda.application.art.member.model.Tree <T> {
++ String getId()
++ String getParentId()
++ void setParentId(String)
++ List<T> getChildren()
++ void addChildren(T)
+}
+
+class com.youkeda.application.art.member.model.Department {
+
+- {static} long serialVersionUID
+
+// 部门名称
+- String name
+
+// 部门描述
+- String desc
+
+// 主管，部门经理
+@Field(targetType = FieldType.OBJECT_ID)
+- String managerAccountId
+
+// 父部门Id
+@Field(targetType = FieldType.OBJECT_ID)
+- String parentId
+
+// 上级部门Ids
+- List<String> parentIds
+
+// 子部门
+@Transient
+- List<Department> children
+
+// 排序值
+- int sort
+
+// 员工人数
+- long memberNum
+
+----
+
++ <<Create>> Department()
++ <<Create>> Department(String id)
+}
+
+class com.youkeda.application.art.member.model.DepartmentAccount {
+- {static} long serialVersionUID
+
+// 部门 ID
+@Field(targetType = FieldType.OBJECT_ID)
+- String departmentId
+
+// 账户 ID
+@Field(targetType = FieldType.OBJECT_ID)
+- String accountId
+
+----
+
+}
+
+com.youkeda.application.art.member.model.Tree <|.. com.youkeda.application.art.member.model.Department : implements
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.Department : extends
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.DepartmentAccount : extends
+
+com.youkeda.application.art.member.model.Department .left. com.youkeda.application.art.member.model.DepartmentAccount
+
+@enduml

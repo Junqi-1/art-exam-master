@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1512px" preserveAspectRatio="none" style="width:2208px;height:1512px;background:#FFFFFF;" version="1.1" viewBox="0 0 2208 1512" width="2208px" zoomAndPan="magnify"><defs/><g><!--MD5=[521fb3f0f046c2917bc66ca623aabd6e]
+cluster com.youkeda.application.art.exam.api--><g id="cluster_com.youkeda.application.art.exam.api"><path d="M8.5,87 L274.5,87 A3.75,3.75 0 0 1 277,89.5 L284,109.4883 L2198.5,109.4883 A2.5,2.5 0 0 1 2201,111.9883 L2201,1502.5 A2.5,2.5 0 0 1 2198.5,1505 L8.5,1505 A2.5,2.5 0 0 1 6,1502.5 L6,89.5 A2.5,2.5 0 0 1 8.5,87 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="284" y1="109.4883" y2="109.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="265" x="10" y="102.5352">com.youkeda.application.art.exam.api</text></g><!--MD5=[0f860c5e73eac06f6f6b50287b8fc49f]
+class com.youkeda.application.art.exam.api.RegistrationPointApi--><g id="elem_com.youkeda.application.art.exam.api.RegistrationPointApi"><rect codeLine="1" fill="#F1F1F1" height="641.5781" id="com.youkeda.application.art.exam.api.RegistrationPointApi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="751" x="22.5" y="484.5"/><ellipse cx="323.25" cy="500.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M325.7231,506.6431 Q325.1421,506.9419 324.5029,507.0913 Q323.8638,507.2407 323.1582,507.2407 Q320.6514,507.2407 319.3315,505.5889 Q318.0117,503.937 318.0117,500.8159 Q318.0117,497.6865 319.3315,496.0347 Q320.6514,494.3828 323.1582,494.3828 Q323.8638,494.3828 324.5112,494.5322 Q325.1587,494.6816 325.7231,494.9805 L325.7231,497.7031 Q325.0923,497.1221 324.4988,496.8523 Q323.9053,496.5825 323.2744,496.5825 Q321.9297,496.5825 321.2449,497.6492 Q320.5601,498.7158 320.5601,500.8159 Q320.5601,502.9077 321.2449,503.9744 Q321.9297,505.041 323.2744,505.041 Q323.9053,505.041 324.4988,504.7712 Q325.0923,504.5015 325.7231,503.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="343.75" y="505.791">RegistrationPointApi</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="772.5" y1="516.5" y2="516.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="42.5" y="534.0352">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30.5" y="540.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="333" x="42.5" y="550.5234">RegistrationPointService registrationPointService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="42.5" y="567.0117">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30.5" y="573.9648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="42.5" y="583.5">RoleService roleService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="599.9883"> </text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="772.5" y1="606.9414" y2="606.9414"/><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="772.5" y1="608.9414" y2="608.9414"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="624.4766"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="42.5" y="640.9648">// 保存报名点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="213" x="42.5" y="657.4531">@PostMapping(value = "/save")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="673.9414">@ResponseBody</text><ellipse cx="33.5" cy="683.8945" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="42.5" y="690.4297">Result&lt;RegistrationPoint&gt; add(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="345" x="42.5" y="706.918">@RequestBody RegistrationPoint registrationPoint,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="491" x="42.5" y="723.4063">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="739.8945">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="756.3828"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="42.5" y="772.8711">// 分页查询授权的报名点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="264" x="42.5" y="789.3594">@GetMapping(value = "/querypaging")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="805.8477">@ResponseBody</text><ellipse cx="33.5" cy="815.8008" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="347" x="42.5" y="822.3359">Result&lt;Paging&lt;RegistrationPoint&gt;&gt; querypaging(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="421" x="42.5" y="838.8242">RegistrationPointPagingParam registrationPointPagingParam,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="343" x="42.5" y="855.3125">@SessionAttribute(value = MemberUtil.LOGIN_KEY</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="42.5" y="871.8008">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="888.2891"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="269" x="42.5" y="904.7773">// 根据一个考级点id查询下属的所有报名点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="293" x="42.5" y="921.2656">@GetMapping(value = "/querypagingplus")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="937.7539">@ResponseBody</text><ellipse cx="33.5" cy="947.707" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="725" x="42.5" y="954.2422">Result&lt;List&lt;RegistrationPoint&gt;&gt; queryPlus(RegistrationPointPagingParam registrationPointPagingParam)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="970.7305"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="42.5" y="987.2188">// 删除报名点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="219" x="42.5" y="1003.707">@GetMapping(value = "/delete")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1020.1953">@ResponseBody</text><ellipse cx="33.5" cy="1030.1484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="380" x="42.5" y="1036.6836">Result&lt;Boolean&gt; delete(@RequestParam("id") String id)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="42.5" y="1053.1719"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="42.5" y="1069.6602">// 根据 id 查询报名点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="42.5" y="1086.1484">@GetMapping(value = "/get")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="42.5" y="1102.6367">@ResponseBody</text><ellipse cx="33.5" cy="1112.5898" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="423" x="42.5" y="1119.125">Result&lt;RegistrationPoint&gt; get(@RequestParam("id") String id)</text></g><!--MD5=[45315ee7562218f04c3cfb0920442768]
+class com.youkeda.application.art.exam.api.ExamApi--><g id="elem_com.youkeda.application.art.exam.api.ExamApi"><rect codeLine="47" fill="#F1F1F1" height="1169.2031" id="com.youkeda.application.art.exam.api.ExamApi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="533" x="808.5" y="221"/><ellipse cx="1040.25" cy="237" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1042.7231,243.1431 Q1042.1421,243.4419 1041.5029,243.5913 Q1040.8638,243.7407 1040.1582,243.7407 Q1037.6514,243.7407 1036.3315,242.0889 Q1035.0117,240.437 1035.0117,237.3159 Q1035.0117,234.1865 1036.3315,232.5347 Q1037.6514,230.8828 1040.1582,230.8828 Q1040.8638,230.8828 1041.5112,231.0322 Q1042.1587,231.1816 1042.7231,231.4805 L1042.7231,234.2031 Q1042.0923,233.6221 1041.4988,233.3523 Q1040.9053,233.0825 1040.2744,233.0825 Q1038.9297,233.0825 1038.2449,234.1492 Q1037.5601,235.2158 1037.5601,237.3159 Q1037.5601,239.4077 1038.2449,240.4744 Q1038.9297,241.541 1040.2744,241.541 Q1040.9053,241.541 1041.4988,241.2712 Q1042.0923,241.0015 1042.7231,240.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1060.75" y="242.291">ExamApi</text><line style="stroke:#181818;stroke-width:0.5;" x1="809.5" x2="1340.5" y1="253" y2="253"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="270.5352"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="828.5" y="287.0234">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="816.5" y="293.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="828.5" y="303.5117">ExamService examService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="320"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="828.5" y="336.4883">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="816.5" y="343.4414"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="828.5" y="352.9766">RoleService roleService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="369.4648"> </text><line style="stroke:#181818;stroke-width:1.0;" x1="809.5" x2="1340.5" y1="376.418" y2="376.418"/><line style="stroke:#181818;stroke-width:1.0;" x1="809.5" x2="1340.5" y1="378.418" y2="378.418"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="393.9531"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="828.5" y="410.4414">// 新增考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="828.5" y="426.9297">@PostMapping(value = "/add")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="443.418">@ResponseBody</text><ellipse cx="819.5" cy="453.3711" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="326" x="828.5" y="459.9063">Result&lt;Exam&gt; add(@RequestBody Exam exam)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="476.3945"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="828.5" y="492.8828">// 修改考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="828.5" y="509.3711">@PostMapping(value = "/update")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="525.8594">@ResponseBody</text><ellipse cx="819.5" cy="535.8125" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="348" x="828.5" y="542.3477">Result&lt;Exam&gt; update(@RequestBody Exam exam)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="558.8359"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="828.5" y="575.3242">// 删除考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="225" x="828.5" y="591.8125">@PostMapping(value = "/delete")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="608.3008">@ResponseBody</text><ellipse cx="819.5" cy="618.2539" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="439" x="828.5" y="624.7891">Result&lt;Exam&gt; delete(@RequestParam("examId") String examId)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="641.2773"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="828.5" y="657.7656">// 根据考级点查询所有考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="260" x="828.5" y="674.2539">@GetMapping(value = "/query/orgid")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="690.7422">@ResponseBody</text><ellipse cx="819.5" cy="700.6953" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="507" x="828.5" y="707.2305">Result&lt;List&lt;Exam&gt;&gt; queryByOrgId(@RequestParam("orgId") String orgId)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="723.7188"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="828.5" y="740.207">// 获取当前正在进行的考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256" x="828.5" y="756.6953">@GetMapping(value = "/get/current")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="773.1836">@ResponseBody</text><ellipse cx="819.5" cy="783.1367" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="482" x="828.5" y="789.6719">Result&lt;Exam&gt; getCurrentExam(@RequestParam("orgId") String orgId)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="806.1602"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="828.5" y="822.6484">// 上传发放单或结算单</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="828.5" y="839.1367">@PostMapping(value = "/upload/payorstate")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="855.625">@ResponseBody</text><ellipse cx="819.5" cy="865.5781" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="828.5" y="872.1133">Result&lt;Exam&gt; upload(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="462" x="828.5" y="888.6016">@RequestParam(value = "stateUrl", required = false) String stateUrl,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="444" x="828.5" y="905.0898">@RequestParam(value = "payUrl", required = false) String payUrl,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="336" x="828.5" y="921.5781">@RequestParam(value = "examId") String examId</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="828.5" y="938.0664">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="954.5547"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="828.5" y="971.043">// 查询可视的考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="828.5" y="987.5313">@GetMapping(value = "/query/role")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="1004.0195">@ResponseBody</text><ellipse cx="819.5" cy="1013.9727" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="240" x="828.5" y="1020.5078">Result&lt;List&lt;Exam&gt;&gt; queryByRole(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="495" x="828.5" y="1036.9961">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="253" x="828.5" y="1053.4844">@RequestParam("orgId") String orgId</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="828.5" y="1069.9727">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="1086.4609"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="828.5" y="1102.9492">// 查询有无修改权限</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="249" x="828.5" y="1119.4375">@GetMapping(value = "/query/edit")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="1135.9258">@ResponseBody</text><ellipse cx="819.5" cy="1145.8789" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="828.5" y="1152.4141">Result editExamPermission(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="495" x="828.5" y="1168.9023">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="253" x="828.5" y="1185.3906">@RequestParam("orgId") String orgId</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="828.5" y="1201.8789">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="1218.3672"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="828.5" y="1234.8555">// 根据考试 ID 查询一条考试</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="828.5" y="1251.3438">@GetMapping(value = "/get")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="1267.832">@ResponseBody</text><ellipse cx="819.5" cy="1277.7852" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="343" x="828.5" y="1284.3203">Result&lt;Exam&gt; get(@RequestParam("id") String id)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="828.5" y="1300.8086"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="828.5" y="1317.2969">// 根据考试 ID 查询是否可以报名</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="466" x="828.5" y="1333.7852">// 当前时间大于考试的开始报名时间，但小于报名结束时间，即为可以报名</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="249" x="828.5" y="1350.2734">@GetMapping(value = "/canSignup")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="828.5" y="1366.7617">@ResponseBody</text><ellipse cx="819.5" cy="1376.7148" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="410" x="828.5" y="1383.25">Result&lt;Boolean&gt; canSignup(@RequestParam("id") String id)</text></g><!--MD5=[6030cb9512c47200fa8936be065caa98]
+class com.youkeda.application.art.exam.api.ExamOrgApi--><g id="elem_com.youkeda.application.art.exam.api.ExamOrgApi"><rect codeLine="125" fill="#F1F1F1" height="1367.0625" id="com.youkeda.application.art.exam.api.ExamOrgApi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="808" x="1377" y="122"/><ellipse cx="1733.25" cy="138" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1735.7231,144.1431 Q1735.1421,144.4419 1734.5029,144.5913 Q1733.8638,144.7407 1733.1582,144.7407 Q1730.6514,144.7407 1729.3315,143.0889 Q1728.0117,141.437 1728.0117,138.3159 Q1728.0117,135.1865 1729.3315,133.5347 Q1730.6514,131.8828 1733.1582,131.8828 Q1733.8638,131.8828 1734.5112,132.0322 Q1735.1587,132.1816 1735.7231,132.4805 L1735.7231,135.2031 Q1735.0923,134.6221 1734.4988,134.3523 Q1733.9053,134.0825 1733.2744,134.0825 Q1731.9297,134.0825 1731.2449,135.1492 Q1730.5601,136.2158 1730.5601,138.3159 Q1730.5601,140.4077 1731.2449,141.4744 Q1731.9297,142.541 1733.2744,142.541 Q1733.9053,142.541 1734.4988,142.2712 Q1735.0923,142.0015 1735.7231,141.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="1753.75" y="143.291">ExamOrgApi</text><line style="stroke:#181818;stroke-width:0.5;" x1="1378" x2="2184" y1="154" y2="154"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="1397" y="171.5352">@Autowired</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1385" y="178.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="1397" y="188.0234">ExamOrgService examOrgService</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="204.5117"> </text><line style="stroke:#181818;stroke-width:1.0;" x1="1378" x2="2184" y1="211.4648" y2="211.4648"/><line style="stroke:#181818;stroke-width:1.0;" x1="1378" x2="2184" y1="213.4648" y2="213.4648"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="229"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1397" y="245.4883">// 新增考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="1397" y="261.9766">@PostMapping(value = "/add")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="278.4648">@ResponseBody</text><ellipse cx="1388" cy="288.418" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="404" x="1397" y="294.9531">Result&lt;ExamOrg&gt; add(@RequestBody ExamOrg examOrg)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="311.4414"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1397" y="327.9297">// 修改考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="1397" y="344.418">@PostMapping(value = "/update")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="360.9063">@ResponseBody</text><ellipse cx="1388" cy="370.8594" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="426" x="1397" y="377.3945">Result&lt;ExamOrg&gt; update(@RequestBody ExamOrg examOrg)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="393.8828"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1397" y="410.3711">// 删除考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="225" x="1397" y="426.8594">@PostMapping(value = "/delete")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="443.3477">@ResponseBody</text><ellipse cx="1388" cy="453.3008" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="517" x="1397" y="459.8359">Result&lt;ExamOrg&gt; delete(@RequestParam("examOrgId") String examOrgId)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="476.3242"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="1397" y="492.8125">// 根据协会查询考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="300" x="1397" y="509.3008">@GetMapping(value = "/query/association")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="525.7891">@ResponseBody</text><ellipse cx="1388" cy="535.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="691" x="1397" y="542.2773">Result&lt;List&lt;ExamOrg&gt;&gt; queryByAssociation(@RequestParam("association") Association association)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="558.7656"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="1397" y="575.2539">// 根据参数查询考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="216" x="1397" y="591.7422">@GetMapping(value = "/query")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="608.2305">@ResponseBody</text><ellipse cx="1388" cy="618.1836" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="384" x="1397" y="624.7188">Result&lt;List&lt;ExamOrg&gt;&gt; query(OrgQueryParam param)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="641.207"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="1397" y="657.6953">// 根据条件分页查询</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="1397" y="674.1836">@GetMapping(value = "/pagequery")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="690.6719">@ResponseBody</text><ellipse cx="1388" cy="700.625" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="444" x="1397" y="707.1602">Result&lt;Paging&lt;ExamOrg&gt;&gt; pageQuery(OrgQueryParam param)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="723.6484"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="1397" y="740.1367">// 查询所有的协会</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="307" x="1397" y="756.625">@GetMapping(value = "/query/associations")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="773.1133">@ResponseBody</text><ellipse cx="1388" cy="783.0664" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="307" x="1397" y="789.6016">Result&lt;List&lt;String&gt;&gt; queryAllAssociations()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="806.0898"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="1397" y="822.5781">// 根据关键字查询</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="281" x="1397" y="839.0664">@GetMapping(value = "/query/keyword")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="855.5547">@ResponseBody</text><ellipse cx="1388" cy="865.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="595" x="1397" y="872.043">Result&lt;List&lt;ExamOrg&gt;&gt; queryByKeyword(@RequestParam("keyword") String keyword)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="888.5313"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256" x="1397" y="905.0195">// 查询所有可以被选为考级点负责人用户</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="295" x="1397" y="921.5078">@GetMapping(value = "/query/examiners")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="937.9961">@ResponseBody</text><ellipse cx="1388" cy="947.9492" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="303" x="1397" y="954.4844">Result&lt;List&lt;Account&gt;&gt; queryAllExaminers(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="369" x="1397" y="970.9727">@RequestParam("departmentId") String departmentId,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="299" x="1397" y="987.4609">@RequestParam("keyword") String keyword,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="491" x="1397" y="1003.9492">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="1397" y="1020.4375">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="1036.9258"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="1397" y="1053.4141">// 根据领队或负责人 id 查询</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="301" x="1397" y="1069.9023">@GetMapping(value = "/query/examinerid")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="1086.3906">@ResponseBody</text><ellipse cx="1388" cy="1096.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="501" x="1397" y="1102.8789">Result&lt;Paging&lt;ExamOrg&gt;&gt; queryByExaminerId(OrgQueryParam param)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="1119.3672"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1397" y="1135.8555">// 根据 ID 查询考级点</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="1397" y="1152.3438">@GetMapping(value = "/get")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="1168.832">@ResponseBody</text><ellipse cx="1388" cy="1178.7852" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="497" x="1397" y="1185.3203">Result&lt;ExamOrg&gt; get(@RequestParam("examOrgId") String examOrgId)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="1201.8086"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1397" y="1218.2969">// 查询可视的考级点（根据权限判断）</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="1397" y="1234.7852">@GetMapping(value = "/query/role")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="1251.2734">@ResponseBody</text><ellipse cx="1388" cy="1261.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="1397" y="1267.7617">Result&lt;Paging&lt;ExamOrg&gt;&gt; queryByRole(</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="495" x="1397" y="1284.25">@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="1397" y="1300.7383">OrgQueryParam orgQueryParam</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="5" x="1397" y="1317.2266">)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="1333.7148"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="1397" y="1350.2031">// 查询成员有无修改权限</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="249" x="1397" y="1366.6914">@GetMapping(value = "/query/edit")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="1383.1797">@ResponseBody</text><ellipse cx="1388" cy="1393.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="782" x="1397" y="1399.668">Result&lt;List&lt;String&gt;&gt; editOrgPermission(@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="1397" y="1416.1563"> </text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="1397" y="1432.6445">// 查询最大的考级点编号</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="1397" y="1449.1328">@GetMapping(value = "/get/maxnum")</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1397" y="1465.6211">@ResponseBody</text><ellipse cx="1388" cy="1475.5742" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223" x="1397" y="1482.1094">Result&lt;String&gt; getLargestNum()</text></g><g id="elem_GMN33623"><path d="M226.5,6 L226.5,61.9316 A0,0 0 0 0 226.5,61.9316 L394,61.9316 L398,484.35 L402,61.9316 L569.5,61.9316 A0,0 0 0 0 569.5,61.9316 L569.5,16 L559.5,6 L226.5,6 A0,0 0 0 0 226.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M559.5,6 L559.5,16 L569.5,16 L559.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="232.5" y="23.5684">@NeedLogin</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="232.5" y="38.8789">@Controller</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="322" x="232.5" y="54.1895">@RequestMapping(value = "/api/registrationPoint")</text></g><g id="elem_GMN33627"><path d="M939,6 L939,61.9316 A0,0 0 0 0 939,61.9316 L1071,61.9316 L1075,220.77 L1079,61.9316 L1211,61.9316 A0,0 0 0 0 1211,61.9316 L1211,16 L1201,6 L939,6 A0,0 0 0 0 939,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1201,6 L1201,16 L1211,16 L1201,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="945" y="23.5684">@NeedLogin</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="945" y="38.8789">@Controller</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="251" x="945" y="54.1895">@RequestMapping(value = "/api/exam")</text></g><g id="elem_GMN33631"><path d="M1634.5,6 L1634.5,61.9316 A0,0 0 0 0 1634.5,61.9316 L1777,61.9316 L1781,121.76 L1785,61.9316 L1927.5,61.9316 A0,0 0 0 0 1927.5,61.9316 L1927.5,16 L1917.5,6 L1634.5,6 A0,0 0 0 0 1634.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1917.5,6 L1917.5,16 L1927.5,16 L1917.5,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="1640.5" y="23.5684">@NeedLogin</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="1640.5" y="38.8789">@Controller</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="272" x="1640.5" y="54.1895">@RequestMapping(value = "/api/examorg")</text></g><!--MD5=[3d5219e87954f60fc59501ba9f501679]
+@startuml
+class com.youkeda.application.art.exam.api.RegistrationPointApi {
+@Autowired
+- RegistrationPointService registrationPointService
+@Autowired
+- RoleService roleService
+
+====
+
+// 保存报名点
+@PostMapping(value = "/save")
+@ResponseBody
++ Result<RegistrationPoint> add(
+  @RequestBody RegistrationPoint registrationPoint,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+// 分页查询授权的报名点
+@GetMapping(value = "/querypaging")
+@ResponseBody
++ Result<Paging<RegistrationPoint>> querypaging(
+  RegistrationPointPagingParam registrationPointPagingParam,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY
+  )
+
+// 根据一个考级点id查询下属的所有报名点
+@GetMapping(value = "/querypagingplus")
+@ResponseBody
++ Result<List<RegistrationPoint>> queryPlus(RegistrationPointPagingParam registrationPointPagingParam)
+
+// 删除报名点
+@GetMapping(value = "/delete")
+@ResponseBody
++ Result<Boolean> delete(@RequestParam("id") String id)
+
+// 根据 id 查询报名点
+@GetMapping(value = "/get")
+@ResponseBody
++ Result<RegistrationPoint> get(@RequestParam("id") String id)
+}
+
+note top of com.youkeda.application.art.exam.api.RegistrationPointApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/registrationPoint")
+end note
+
+class com.youkeda.application.art.exam.api.ExamApi {
+
+@Autowired
+- ExamService examService
+
+@Autowired
+- RoleService roleService
+
+====
+
+// 新增考试
+@PostMapping(value = "/add")
+@ResponseBody
++ Result<Exam> add(@RequestBody Exam exam)
+
+// 修改考试
+@PostMapping(value = "/update")
+@ResponseBody
++ Result<Exam> update(@RequestBody Exam exam)
+
+// 删除考试
+@PostMapping(value = "/delete")
+@ResponseBody
++ Result<Exam> delete(@RequestParam("examId") String examId)
+
+// 根据考级点查询所有考试
+@GetMapping(value = "/query/orgid")
+@ResponseBody
++ Result<List<Exam>> queryByOrgId(@RequestParam("orgId") String orgId)
+
+// 获取当前正在进行的考试
+@GetMapping(value = "/get/current")
+@ResponseBody
++ Result<Exam> getCurrentExam(@RequestParam("orgId") String orgId)
+
+// 上传发放单或结算单
+@PostMapping(value = "/upload/payorstate")
+@ResponseBody
++ Result<Exam> upload(
+  @RequestParam(value = "stateUrl", required = false) String stateUrl,
+  @RequestParam(value = "payUrl", required = false) String payUrl,
+  @RequestParam(value = "examId") String examId
+  )
+
+// 查询可视的考试
+@GetMapping(value = "/query/role")
+@ResponseBody
++ Result<List<Exam>> queryByRole(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("orgId") String orgId
+  )
+
+// 查询有无修改权限
+@GetMapping(value = "/query/edit")
+@ResponseBody
++ Result editExamPermission(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  @RequestParam("orgId") String orgId
+)
+
+// 根据考试 ID 查询一条考试
+@GetMapping(value = "/get")
+@ResponseBody
++ Result<Exam> get(@RequestParam("id") String id)
+
+// 根据考试 ID 查询是否可以报名
+// 当前时间大于考试的开始报名时间，但小于报名结束时间，即为可以报名
+@GetMapping(value = "/canSignup")
+@ResponseBody
++ Result<Boolean> canSignup(@RequestParam("id") String id)
+}
+
+note top of com.youkeda.application.art.exam.api.ExamApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/exam")
+end note
+
+class com.youkeda.application.art.exam.api.ExamOrgApi {
+@Autowired
+- ExamOrgService examOrgService
+
+====
+
+// 新增考级点
+    @PostMapping(value = "/add")
+    @ResponseBody
++ Result<ExamOrg> add(@RequestBody ExamOrg examOrg)
+
+// 修改考级点
+    @PostMapping(value = "/update")
+    @ResponseBody
++ Result<ExamOrg> update(@RequestBody ExamOrg examOrg)
+
+// 删除考级点
+    @PostMapping(value = "/delete")
+    @ResponseBody
++ Result<ExamOrg> delete(@RequestParam("examOrgId") String examOrgId)
+
+// 根据协会查询考级点
+    @GetMapping(value = "/query/association")
+    @ResponseBody
++ Result<List<ExamOrg>> queryByAssociation(@RequestParam("association") Association association)
+
+// 根据参数查询考级点
+    @GetMapping(value = "/query")
+    @ResponseBody
++ Result<List<ExamOrg>> query(OrgQueryParam param)
+
+// 根据条件分页查询
+    @GetMapping(value = "/pagequery")
+    @ResponseBody
++ Result<Paging<ExamOrg>> pageQuery(OrgQueryParam param)
+
+// 查询所有的协会
+    @GetMapping(value = "/query/associations")
+    @ResponseBody
++ Result<List<String>> queryAllAssociations()
+
+// 根据关键字查询
+    @GetMapping(value = "/query/keyword")
+    @ResponseBody
++ Result<List<ExamOrg>> queryByKeyword(@RequestParam("keyword") String keyword)
+
+// 查询所有可以被选为考级点负责人用户
+    @GetMapping(value = "/query/examiners")
+    @ResponseBody
++ Result<List<Account>> queryAllExaminers(
+  @RequestParam("departmentId") String departmentId,
+  @RequestParam("keyword") String keyword,
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser
+  )
+
+// 根据领队或负责人 id 查询
+    @GetMapping(value = "/query/examinerid")
+    @ResponseBody
++ Result<Paging<ExamOrg>> queryByExaminerId(OrgQueryParam param)
+
+// 根据 ID 查询考级点
+    @GetMapping(value = "/get")
+    @ResponseBody
++ Result<ExamOrg> get(@RequestParam("examOrgId") String examOrgId)
+
+// 查询可视的考级点（根据权限判断）
+    @GetMapping(value = "/query/role")
+    @ResponseBody
++ Result<Paging<ExamOrg>> queryByRole(
+  @SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser,
+  OrgQueryParam orgQueryParam
+  )
+
+// 查询成员有无修改权限
+    @GetMapping(value = "/query/edit")
+    @ResponseBody
++ Result<List<String>> editOrgPermission(@SessionAttribute(value = MemberUtil.LOGIN_KEY) LoginUser loginUser)
+
+// 查询最大的考级点编号
+    @GetMapping(value = "/get/maxnum")
+    @ResponseBody
++ Result<String> getLargestNum()
+}
+
+note top of com.youkeda.application.art.exam.api.ExamOrgApi
+@NeedLogin
+@Controller
+@RequestMapping(value = "/api/examorg")
+end note
+
+
+@enduml
+
+PlantUML version 1.2022.6(Wed Jun 22 01:34:49 CST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

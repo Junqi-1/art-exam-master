@@ -1,0 +1,295 @@
+@startuml
+
+interface com.youkeda.application.art.exam.service.ExamService {
+
+====
+
+// 添加修改考试信息
++ Exam save(Exam exam)
+
+// 删除考试
++ Result<Exam> delete(String examId)
+
+// 查询考试
++ List<Exam> query(ExamQueryParam param)
+
+// 获取当前正在进行的考试
++ Exam getCurrentExam(String orgId)
+
+// 查询可视的考级点（根据权限判断）
++ List<Exam> queryVisibleExams(String orgId, String accountId)
+
+// 查询不同的修改权限
++ Result editExamPermission(String orgId, String accountId)
+
+// 获取exam
++ Exam get(String examId)
+}
+
+class com.youkeda.application.art.exam.param.OrgQueryParam {
+
+// 协会类型
+- Association association
+
+// 领队accountId
+- String leadId
+
+// 关键字
+- String keyword
+
+// 领队或者考级点负责人
+- String adminId
+- List<String> orgIds
+
+// 考级点负责人accountId
+- String chargeId
+
+// 多个考级点负责人accountId
+- List<String> chargeIds
+
+// 考级点编号
+- String num
+
+// 需要查询领队和负责人
+- boolean wantAccount
+
+// 根据考级点创建 gmtCreated 年份查询
+- int year
+
+====
+
+}
+class com.youkeda.application.art.exam.param.ExamQueryParam {
+// 考级点id
+- String orgId
+
+// 多考级点id
+- List<String> orgIds
+
+// 多考试 id
+- List<String> examIds
+
+// 除当前考试进度外
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- ExamStage notExamStage
+
+// 报名开始时间
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime signUpStart
+
+// 报名结束时间
+- LocalDateTime signUpEnd
+
+// 限定查询数量
+- int limit
+
+====
+
+}
+
+class com.youkeda.application.art.exam.service.impl.ExamOrgServiceImpl {
+
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- AccountService accountService
+
+@Autowired
+- RoleService roleService
+
+@Autowired
+- DepartmentAccountService departmentAccountService
+
+@Autowired
+- PermissionService permissionService
+
+@Autowired
+- PermissionAccountsService permissionAccountsService
+
+@Autowired
+@Lazy
+- ExamService examService
+
+====
+
+}
+
+interface com.youkeda.application.art.exam.service.RegistrationPointService {
+
+====
+
+// 报名点保存
++ RegistrationPoint save(RegistrationPoint registrationPoint)
+
+// 分页查询报名点信息
++ Paging<RegistrationPoint> pageQuery(RegistrationPointPagingParam pagingParam)
+
+// 根据报名点id查询到全部考级点
++ List<RegistrationPoint> queryplus(RegistrationPointPagingParam pagingParam)
+
+// 通过报名点id查询报名点
++ RegistrationPoint get(String registrationPointId)
+
+// 删除报名点信息
++ boolean delete(String registrationPointId)
+}
+
+class com.youkeda.application.art.exam.service.impl.ExamServiceImpl {
+
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- ExamOrgService examOrgService
+
+@Autowired
+- AccountService accountService
+
+@Autowired
+- DepartmentAccountService departmentAccountService
+
+@Autowired
+- RoleService roleService
+
+====
+
+}
+
+class com.youkeda.application.art.exam.util.LWConstant {
+
+// 数据库中预置的 考官 权限 id
++ {static} String EXAMINERROLEID
+
+// 数据库中预置的 领队 角色 id
++ {static} String LEADROLEID
+
+// 数据库中预置的 考级点负责人 角色 id
++ {static} String CHARGEROLEID
+
+// 数据库中预置的 考级点报名点负责人 角色 id
++ {static} String REGISTRATIONPOINTROLEID
+
+// 数据库中预置的 系统管理员 角色 id
++ {static} String SYSADMIN
+
+// 数据库中预置的 艺考管理员 角色 id
++ {static} String MUSICADMIN
+
+// 数据库中预置的 艺考公司 id
++ {static} String LWCOMPANYID
+
+// 数据库中预置的 查看权限的名称
++ {static} String VIEWPERMISSIONNAME
+
+// 数据库中预置的 考官部门 id
++ {static} String EXAMINERDEPARTMENTID
+}
+
+class com.youkeda.application.art.exam.service.impl.RegistrationPointServiceImpl {
+
+@Autowired
+- MongoTemplate mongoTemplate
+
+@Autowired
+- ExamOrgService examOrgService
+
+@Autowired
+- AccountService accountService
+
+====
+
+}
+
+class com.youkeda.application.art.exam.param.RegistrationPointPagingParam {
+// 考级点id
+- String orgId
+
+// 关键字
+- String keyword
+
+// 账户id
+- String accountId
+
+// 是否需要考级点信息
+- boolean needOrg
+
+// 审核状态
+- String status
+
+====
+
+}
+
+interface com.youkeda.application.art.exam.service.ExamOrgService {
+
+====
+
+// 添加修改考级点信息
++ ExamOrg save(ExamOrg examOrg)
+
+// 删除考级点
++ Result<ExamOrg> delete(String orgId)
+
+// 查询考级点editOrgPermission
++ List<ExamOrg> query(OrgQueryParam orgQueryParam)
+
+// 分页查询考级点
++ Paging<ExamOrg> pageQuery(OrgQueryParam orgQueryParam)
+
+// 查询所有可以被选为考级点负责人用户
++ List<Account> queryAllExaminers(String departmentId, String keyword, String companyId)
+
+// 通过主键查询考级点
++ ExamOrg get(String examOrgId)
+
+// 更新考级点报名人数
++ ExamOrg updateSignUpIndex(String orgId)
+
+// 查询可视的考级点（根据权限判断）
++ Paging<ExamOrg> queryVisibleOrgs(OrgQueryParam orgQueryParam)
+
+// 查询成员有无修改权限
++ Result<List<String>> editOrgPermission(String accountId)
+
+// 查询最大的考场编号
++ String getLargestNum()
+
+// 查询考级点
++ List<ExamOrg> queryExam(OrgQueryParam orgQueryParam)
+}
+
+class com.youkeda.application.art.member.util.DateUtil {
+
+- {static} DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
+====
+
+// 时间字符串转换成 LocalDateTime
++ {static} LocalDateTime parse(String time)
+
+// 获取某年第一天日期
++ {static} LocalDateTime getYearFirst(int year)
+}
+
+
+com.youkeda.model.BasePagingParam <|-- com.youkeda.application.art.exam.param.OrgQueryParam : extends
+com.youkeda.application.art.exam.service.ExamOrgService <|.. com.youkeda.application.art.exam.service.impl.ExamOrgServiceImpl : implements
+com.youkeda.application.art.exam.service.ExamService <|.. com.youkeda.application.art.exam.service.impl.ExamServiceImpl : implements
+com.youkeda.application.art.exam.service.RegistrationPointService <|.. com.youkeda.application.art.exam.service.impl.RegistrationPointServiceImpl : implements
+com.youkeda.model.BasePagingParam <|-- com.youkeda.application.art.exam.param.RegistrationPointPagingParam : extends
+
+com.youkeda.application.art.exam.service.ExamOrgService .up.> com.youkeda.application.art.exam.param.OrgQueryParam : Dependency
+
+com.youkeda.application.art.exam.service.RegistrationPointService .up.> com.youkeda.application.art.exam.param.RegistrationPointPagingParam : Dependency
+
+com.youkeda.application.art.exam.service.ExamService ..> com.youkeda.application.art.exam.param.ExamQueryParam : Dependency
+
+com.youkeda.application.art.exam.service.impl.ExamServiceImpl ..> com.youkeda.application.art.exam.util.LWConstant : Dependency
+com.youkeda.application.art.exam.service.impl.ExamServiceImpl ..> com.youkeda.application.art.exam.service.ExamOrgService : Dependency
+com.youkeda.application.art.exam.service.impl.ExamOrgServiceImpl ..> com.youkeda.application.art.exam.util.LWConstant : Dependency
+com.youkeda.application.art.exam.service.impl.ExamOrgServiceImpl ..> com.youkeda.application.art.exam.service.ExamService : Dependency
+com.youkeda.application.art.exam.service.impl.ExamOrgServiceImpl ..> com.youkeda.application.art.member.util.DateUtil : Dependency
+com.youkeda.application.art.exam.service.impl.RegistrationPointServiceImpl ..> com.youkeda.application.art.exam.service.ExamOrgService : Dependency
+
+@enduml

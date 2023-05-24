@@ -1,0 +1,81 @@
+@startuml
+
+interface com.youkeda.application.art.member.service.UserService #LightYellow##FireBrick {
+
+----
+// 根据 userId 获取用户
++ User getWithUserId(String userId)
+
+// 根据 userName 获取用户
++ User getWithUserName(String userName)
+
+// 根据 mobile 获取用户
++ User getWithMobile(String mobile)
+
+// 生成密码
++ String getMd5Pwd(String slot, String pwd)
+
+// 修改用户信息
++ User update(User user)
+
+// 注册用户
++ User reg(User user) throws UserNameInUseException
+
+// 修改密码
++ changePwd(String userId, String newPwd) throws UserPwdErrorException
+
+// 重置密码
++ restPwd(String userId, String newPwd)
+
+}
+
+class com.youkeda.application.art.member.service.impl.UserServiceImpl #LightYellow##FireBrick {
+- MongoTemplate mongoTemplate
+- UserRepository userRepository
+
+----
+
+}
+
+class com.youkeda.application.art.member.exception.UserNameInUseException #LightYellow##FireBrick {
+- User user
+----
+
++ <<Create>> UserNameInUseException(User user)
+
++ public User getUser()
+}
+
+class com.youkeda.application.art.member.exception.UserPwdErrorException #LightYellow##FireBrick {
+}
+
+interface com.youkeda.application.art.member.repository.UserRepository #LightYellow##FireBrick {
+
+----
+
+// 根据手机号查询user
++ User findByMobile(String mobile);
+
+// 根据 userName 查询user
++ User findByUserName(String userName);
+
+// 根据 email 查询user
++ User findByEmail(String email);
+
+}
+
+interface org.springframework.data.mongodb.repository.MongoRepository <User, String> {
+}
+
+com.youkeda.application.art.member.exception.UserNameInUseException -up-|> java.lang.Exception : extends
+com.youkeda.application.art.member.exception.UserPwdErrorException -up-|> java.lang.Exception : extends
+
+com.youkeda.application.art.member.service.UserService .up.> com.youkeda.application.art.member.exception.UserNameInUseException
+com.youkeda.application.art.member.service.UserService .up.> com.youkeda.application.art.member.exception.UserPwdErrorException
+
+com.youkeda.application.art.member.service.UserService <|.. com.youkeda.application.art.member.service.impl.UserServiceImpl : implements
+
+com.youkeda.application.art.member.service.impl.UserServiceImpl .right.> com.youkeda.application.art.member.repository.UserRepository
+
+com.youkeda.application.art.member.repository.UserRepository -up-|> org.springframework.data.mongodb.repository.MongoRepository : extends
+@enduml

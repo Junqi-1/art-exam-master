@@ -1,0 +1,9 @@
+@startuml
+interface com.youkeda.application.art.member.model.Tree {
+~ String getParentId()
+~ void setParentId(String)
+~ String getId()
+~ List<T> getChildren()
+~ void addChildren(T)
+}
+@enduml

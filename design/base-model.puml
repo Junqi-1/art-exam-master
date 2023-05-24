@@ -1,0 +1,28 @@
+@startuml
+
+interface java.io.Serializable {
+}
+
+class com.youkeda.model.Base<T> {
+// 主键
+@Id
+# String id
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtCreated
+
+@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+- LocalDateTime gmtModified
+
+----
+
++ String getId()
++ T setId(String id)
+
+}
+
+
+
+java.io.Serializable <|.. com.youkeda.model.Base : implements
+
+@enduml

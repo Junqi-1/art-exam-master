@@ -1,0 +1,15 @@
+@startuml
+class com.youkeda.application.art.member.model.DepartmentAccount {
+- {static} long serialVersionUID
++ {static} String C_NAME
+- String departmentId
+- String accountId
++ String getDepartmentId()
++ void setDepartmentId(String)
++ String getAccountId()
++ void setAccountId(String)
+}
+
+
+com.youkeda.model.Base <|-- com.youkeda.application.art.member.model.DepartmentAccount
+@enduml
